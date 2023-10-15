@@ -1,8 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_erpish_asset_1,a,model_erpish_consolidation,group_consolidation_manager,1,1,1,1
-access_erpish_asset_2,a,model_erpish_consolidation_line,group_consolidation_manager,1,1,1,1
-access_erpish_asset_2,a,model_erpish_consolidation_line,group_consolidation_user,1,1,1,1
-access_erpish_asset_1,a2,model_erpish_consolidation,group_consolidation_user,1,1,0,0
-access_erpish_gatc_product,a233,product.model_product_category,group_consolidation_user,1,1,1,1
-access_erpish_stock_loc,a24,stock.model_stock_location,group_consolidation_user,1,1,1,1
-access_erpish_product,a228,product.model_product_template,group_consolidation_user,1,1,1,0
+access_erpish_asset_1,a,model_dzexpert_skeleton,group_skeleton_user,1,1,1,1

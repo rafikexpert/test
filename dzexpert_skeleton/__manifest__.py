@@ -17,7 +17,7 @@
 	],
     'data': [
 		'security/security.xml',
-		'views/consolidation.xml',
+		'views/skeleton.xml',
 		'views/menu.xml', 
 		'data/cron.xml', 
 		'security/ir.model.access.csv',   

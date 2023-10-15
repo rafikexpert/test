@@ -29,3 +29,8 @@ class Consolidation(models.Model):
 	description=fields.Html(string='Description')
 	company_id = fields.Many2one('res.company', 'Entreprise Locale')
 		
+	def action_hello(self):
+		f=1
+		
+	def cron_update(self):
+		f=1

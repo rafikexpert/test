@@ -78,7 +78,7 @@
         </record>
         
         <record id="action_skeleton_docs" model="ir.actions.act_window">
-            <field name="name">Consolidations</field>
+            <field name="name">Skeleton Docs</field>
             <field name="res_model">dzexpert.skeleton</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>
