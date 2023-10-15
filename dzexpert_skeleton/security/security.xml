@@ -1,0 +1,17 @@
+<odoo>
+	
+	    <record model="ir.module.category" id="module_dzexpert_skeleton">
+            <field name="name">DZExpert Skeleton</field>
+            <field name="description">DZExpert Skeleton</field>
+            <field name="sequence">1</field>
+        </record>
+
+		<record id="group_skeleton_user" model="res.groups">
+			<field name="name">User</field>
+			<field name="category_id" ref="dzexpert_skeleton.module_dzexpert_skeleton"/>			
+			<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>	
+			<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+
+
+</odoo>
