@@ -65,7 +65,7 @@
 	  
          <record id="view_skeleton_filter" model="ir.ui.view">
             <field name="name">erpish.unite</field>
-            <field name="model">erpish.consolidation</field>
+            <field name="model">dzexpert.skeleton</field>
             <field name="arch" type="xml">
                 <search string="Search Requests">
                 
