@@ -1,0 +1,14 @@
+<odoo>
+	<record model="ir.module.category" id="module_dzexpert_manage_modules_task">
+		<field name="name">DZExpert task</field>
+		<field name="description">DZExpert task</field>
+		<field name="sequence">1</field>
+	</record>
+
+	<record id="group_task_user" model="res.groups">
+		<field name="name">User</field>
+		<field name="category_id" ref="dzexpert_manage_modules.module_dzexpert_manage_modules_task" />
+		<field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+		<field name="users" eval="[(4, ref('base.user_root'))]" />
+	</record>
+</odoo>

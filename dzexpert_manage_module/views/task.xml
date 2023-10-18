@@ -1,0 +1,58 @@
+<odoo>
+    <record id="action_tasks" model="ir.actions.act_window">
+        <field name="name">Tasks</field>
+        <field name="res_model">dzexpert_manage_modules.task</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_postes" model="ir.actions.act_window">
+        <field name="name">Postes</field>
+        <field name="res_model">dzexpert_manage_modules.poste</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_categories" model="ir.actions.act_window">
+        <field name="name">Categories</field>
+        <field name="res_model">dzexpert_manage_modules.category</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="view_tasks_tree" model="ir.ui.view">
+        <field name="name">Tasks</field>
+        <field name="model">dzexpert_manage_modules.task</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="description" />
+                <field name="category_id" />
+                <field name="poste_id" />
+                <field name="dependent_tasks_ids" widget="many2many_tags">
+                </field>
+                <field name="create_date" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_tasks_form" model="ir.ui.view">
+        <field name="name">Task</field>
+        <field name="model">dzexpert_manage_modules.task</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name" />
+                    <field name="description" />
+                    <field name="poste_id" />
+                    <field name="category_id" />
+                    <field name="dependent_tasks_ids" widget="many2many_tags" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+</odoo>
