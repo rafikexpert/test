@@ -23,14 +23,36 @@ class Consolidation(models.Model):
 
 	
 	active = fields.Boolean('Active', default=True)
-	
+	state=fields.Selection([
+		('draft','Draft'),
+		('done','Done')],string='State',default='draft')
 	name = fields.Char(string='Nom', required=True,track_visibility='onchange')	
 	image_small = fields.Binary("Image", attachment=True)	
 	description=fields.Html(string='Description')
 	company_id = fields.Many2one('res.company', 'Entreprise Locale')
 		
-	def action_hello(self):
-		f=1
+	currency_id = fields.Many2one(
+		'res.currency', string='Currency', default=_default_currency, readonly=True)	
+	attachment_number = fields.Integer(compute='_compute_attachment_number', string='P.J.')	
+		
+	
+	def action_done(self):
+		self.state='done'
 		
 	def cron_update(self):
 		f=1
+		
+	def _compute_attachment_number(self):
+		attachment_data = self.env['ir.attachment'].read_group([('res_model', '=', 'erpish.achat.demande'), ('res_id', 'in', self.ids)], ['res_id'], ['res_id'])
+		attachment = dict((data['res_id'], data['res_id_count']) for data in attachment_data)
+		for expense in self:
+			expense.attachment_number = attachment.get(expense.id, 0)
+			
+			
+ 
+	def action_get_attachment_view(self):
+		self.ensure_one()
+		res = self.env.ref('base.action_attachment').sudo().read()[0]
+		res['domain'] = [('res_model', '=', 'erpish.achat.demande'), ('res_id', 'in', self.ids)]
+		res['context'] = {'create':True,'delete':True,'default_res_model': 'erpish.achat.demande', 'default_res_id': self.id}
+		return res
