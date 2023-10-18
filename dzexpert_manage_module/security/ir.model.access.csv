@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_task_1,access task,model_dzexpert_manage_modules_task,group_task_user,1,1,1,1
+access_post_1,access post,model_dzexpert_manage_modules_poste,group_task_user,1,1,1,1
+access_category_1,access category,model_dzexpert_manage_modules_category,group_task_user,1,1,1,1

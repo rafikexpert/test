@@ -1,0 +1,21 @@
+<odoo>
+    <menuitem  id="menu_dzexpert_tasks_top"  
+        name="Task"  
+        web_icon="dzexpert_manage_modules,static/description/icon.png"
+        sequence="99" />
+	<menuitem  id="menu_dzexpert_tasks_list"  
+		name="Tasks"  
+		action="action_tasks" 
+		parent="menu_dzexpert_tasks_top"
+		sequence="100" />	
+	<menuitem  id="menu_dzexpert_categories_list"  
+		name="Categories"  
+		action="action_categories" 
+		parent="menu_dzexpert_tasks_top"
+		sequence="101" />	
+	<menuitem  id="menu_dzexpert_postes_list"  
+		name="Postes"  
+		action="action_postes" 
+		parent="menu_dzexpert_tasks_top"
+		sequence="101" />	
+</odoo>
