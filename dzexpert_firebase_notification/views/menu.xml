@@ -1,0 +1,37 @@
+<odoo>
+
+    <menuitem  id="menu_dzexpert_firebase_notification_top"  
+        name="Firebase Notification"  
+        web_icon="dzexpert_firebase_notification,static/description/icon.png"
+        groups="group_firebase_notification_user"
+        sequence="99" />
+
+                
+				<menuitem  id="menu_dzexpert_c_message"  
+					name="Messages"  
+					action="action_firebase_messages" 
+					parent="menu_dzexpert_firebase_notification_top"
+					groups="base.group_system,group_firebase_notification_user"
+					sequence="100" />
+
+				<menuitem  id="menu_dzexpert_c_topic"  
+					name="Topics"  
+					action="action_firebase_topics" 
+					parent="menu_dzexpert_firebase_notification_top"
+					groups="base.group_system,group_firebase_notification_user"
+					sequence="100" />	
+
+				<menuitem  id="menu_dzexpert_c_device"  
+					name="Devices"  
+					action="action_firebase_devices" 
+					parent="menu_dzexpert_firebase_notification_top"
+					groups="base.group_system,group_firebase_notification_user"
+					sequence="100" />
+
+				<menuitem  id="menu_erpish_c_configuration"  
+					name="Configuration"  
+					action="action_firebase_configurations" 
+					parent="menu_dzexpert_firebase_notification_top"
+					groups="base.group_system,group_firebase_notification_user"
+					sequence="100" />	                
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_erpish_asset_1,a,model_dzexpert_firebase_configuration,group_firebase_notification_user,1,1,1,1
+access_erpish_asset_2,b,model_dzexpert_firebase_message,group_firebase_notification_user,1,1,1,1
+access_erpish_asset_3,c,model_dzexpert_firebase_topic,group_firebase_notification_user,1,1,1,1
+access_erpish_asset_4,d,model_dzexpert_firebase_device,group_firebase_notification_user,1,1,1,1

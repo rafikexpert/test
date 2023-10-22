@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+					
+            <record id="seq_ref_message" model="ir.sequence">
+                <field name="name">Reference message</field>
+                <field name="code">dzexpert.firebase.message.sequence</field>
+                <field name="prefix">dzexpert</field>
+                <field name="suffix">message</field>
+                <field name="padding">5</field>
+                <field name="company_id" eval="False"/>
+            </record>
+			
+   </data>
+
+</odoo>

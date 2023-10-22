@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "DZExpert.com Skeleton",
-    'summary': "DZExpert.com Skeleton",
+    'name': "DZExpert.com Firebase Notification",
+    'summary': "DZExpert.com Firebase Notification",
     'description': """
-		DZExpert.com Skeleton
+		DZExpert.com Firebase Notification
     """, 
     'price':600,
     'currency':'EUR' ,
@@ -12,19 +12,22 @@
     'category': 'Project', 
     'version': '11.0.1.3',   
     'depends': [
+    'base',
 		'stock',
 		'account',
 	],
     'data': [
 		'security/security.xml',
-		'views/skeleton.xml',
+    'views/firebase_topic.xml',
+		'views/firebase_configuration.xml',
+		'views/firebase_message.xml',  
 		'views/menu.xml', 
-    'view/users.xml',
-		'data/cron.xml', 
-		'security/ir.model.access.csv',   
+    'views/device.xml',
+		'security/ir.model.access.csv',  
+    'data/cron.xml', 
+    'data/sequence.xml',
     ],
     'installable': True,
     'application': True,   
     'auto_install': False,
 }
-

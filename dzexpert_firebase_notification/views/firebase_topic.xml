@@ -1,0 +1,53 @@
+<odoo>
+	<record  id="view_dzexpert_firebase_topic_form"  model="ir.ui.view">  
+		<field  name="name">Expenses Category</field>  
+		<field  name="model">dzexpert.firebase.topic</field>  
+		<field  name="arch"  type="xml">  
+			<form duplicate="false" delete="false">  
+				<sheet>
+                    <group>
+						<group>
+                            <field name="name" default_focus="1" string="Nom"/>
+						</group>
+                        <group>
+                            <field name="user_topic_ids"  string="Abonnées" widget="many2many_tags"/>   
+                        </group>
+                    </group>				                  
+				</sheet>			
+			</form>  
+		</field> 
+
+	</record>
+
+    <record id="view_dzexpert_firebase_topic_tree" model="ir.ui.view">
+        <field name="name">erpish.cahsier.exepnses.tree</field>
+        <field  name="model">dzexpert.firebase.topic</field>  
+        <field name="arch" type="xml">
+            <tree duplicate="false" delete="false">
+                <field name="name" string="Nom"/>
+                <field name="user_topic_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_firebase_topic_filter" model="ir.ui.view">
+        <field name="name">erpish.unite</field>
+        <field name="model">dzexpert.firebase.topic</field>
+        <field name="arch" type="xml">
+            <search string="Search Requests">
+            
+                <separator/>		
+                <field name="name"/>
+                
+            </search>
+        </field>
+    </record>
+    <record id="action_firebase_topics" model="ir.actions.act_window">
+            <field name="name">Topic</field>
+            <field name="res_model">dzexpert.firebase.topic</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>                   
+    </record>
+</odoo>
