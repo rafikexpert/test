@@ -15,10 +15,10 @@ _logger = logging.getLogger(__name__)
 
 	
 	
-class Consolidation(models.Model):
-	_name = 'dzexpert.firebase.notification' 
+class Configuration(models.Model):
+	_name = 'dzexpert.firebase.configuration' 
 	_inherit=['mail.thread']
-	_description = "Firebase Notifictaion"	
+	_description = "Firebase Configuration"	
 	_order = 'name asc'
 
 	
@@ -28,6 +28,7 @@ class Consolidation(models.Model):
 	image_small = fields.Binary("Image", attachment=True)	
 	description=fields.Html(string='Description')
 	type = fields.Selection(selection=[('topic','Topic'),('user','User')], string='Type')
+	key = fields.Char(string='Token', required=True)	
 		
 	def action_hello(self):
 		f=1

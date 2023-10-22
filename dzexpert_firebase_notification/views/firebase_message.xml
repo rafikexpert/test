@@ -1,0 +1,68 @@
+<odoo>
+	<record  id="view_dzexpert_firebase_message_form"  model="ir.ui.view">  
+		<field  name="name">Expenses Category</field>  
+		<field  name="model">dzexpert.firebase.message</field>  
+		<field  name="arch"  type="xml">  
+			<form duplicate="false" delete="false">  
+				<header>
+                    <button name="action_confirm" type="object" state="draft" string="Confirm" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="action_send" type="object"  state="tosend" string="Send" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'tosend')]}"/>
+                    <field name="state"  widget="statusbar" statusbar_visible="draft,tosend,sent"/>
+                </header>
+				<sheet>
+                    <group>
+						<group>
+                            <field name="reference" default_focus="1" string="Référence" />
+                            <field name="content" default_focus="1" string="Contenu" attrs="{'readonly': [('state', '=', 'sent')]}"/>
+						</group>
+                        <group>
+                            <field name="config_id" options="{'no_create': True}" string="Configuration" attrs="{'readonly': [('state', '=', 'sent')]}"/> 
+                            <field name="type" options="{'no_create': True}" string="Type"/>  
+                            <field name="topic_ids"  string="Thèmes de destination" widget="many2many_tags" attrs="{'invisible': [('type', '!=', 'topic')],'readonly': [('state', '=', 'sent')]}"/> 
+                            <field name="user_dest_ids"  string="Utilisateurs de destination" widget="many2many_tags" attrs="{'invisible': [('type', '!=', 'user')],'readonly': [('state', '=', 'sent')]}"/>  
+                        </group>
+                        <group>  
+                            <field name="origin"  string="Origine" attrs="{'readonly': [('state', '=', 'sent')]}"/>
+                        </group>
+                    </group>				                  
+				</sheet>			
+			</form>  
+		</field> 
+
+	</record>
+
+    <record id="view_dzexpert_firebase_message_tree" model="ir.ui.view">
+        <field name="name">erpish.cahsier.exepnses.tree</field>
+        <field  name="model">dzexpert.firebase.message</field>  
+        <field name="arch" type="xml">
+            <tree duplicate="false" delete="false">
+                <field name="content" string="Contenu"/>
+                <field name="state" string = "Etat"/>
+                <field name="type" options="{'no_create': True}"/>
+                <field name="user_dest_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_firebase_message_filter" model="ir.ui.view">
+        <field name="name">erpish.unite</field>
+        <field name="model">dzexpert.firebase.message</field>
+        <field name="arch" type="xml">
+            <search string="Search Requests">
+            
+                <separator/>		
+                <field name="user_dest_ids"/>
+                <field name="state"/>
+                
+            </search>
+        </field>
+    </record>
+    <record id="action_firebase_messages" model="ir.actions.act_window">
+            <field name="name">Message</field>
+            <field name="res_model">dzexpert.firebase.message</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>                   
+    </record>
+</odoo>

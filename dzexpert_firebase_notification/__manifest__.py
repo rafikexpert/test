@@ -12,15 +12,20 @@
     'category': 'Project', 
     'version': '11.0.1.3',   
     'depends': [
+    'base',
 		'stock',
 		'account',
 	],
     'data': [
 		'security/security.xml',
-		'views/firebase_notification.xml',
+    'views/firebase_topic.xml',
+		'views/firebase_configuration.xml',
+		'views/firebase_message.xml',  
 		'views/menu.xml', 
-
-		'security/ir.model.access.csv',   
+    'views/users.xml',
+		'security/ir.model.access.csv',  
+    'data/cron.xml', 
+    'data/sequence.xml',
     ],
     'installable': True,
     'application': True,   

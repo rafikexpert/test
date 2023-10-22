@@ -19,6 +19,7 @@
 		'security/security.xml',
 		'views/skeleton.xml',
 		'views/menu.xml', 
+    'view/users.xml',
 		'data/cron.xml', 
 		'security/ir.model.access.csv',   
     ],
@@ -26,3 +27,4 @@
     'application': True,   
     'auto_install': False,
 }
+

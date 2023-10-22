@@ -7,16 +7,23 @@
         sequence="99" />
 
                 
-				<menuitem  id="menu_erpish_c_messages"  
+				<menuitem  id="menu_dzexpert_c_message"  
 					name="Messages"  
-					
+					action="action_firebase_messages" 
+					parent="menu_dzexpert_firebase_notification_top"
+					groups="base.group_system,group_firebase_notification_user"
+					sequence="100" />
+
+				<menuitem  id="menu_dzexpert_c_topic"  
+					name="Topic"  
+					action="action_firebase_topics" 
 					parent="menu_dzexpert_firebase_notification_top"
 					groups="base.group_system,group_firebase_notification_user"
 					sequence="100" />	
-					
+
 				<menuitem  id="menu_erpish_c_configuration"  
 					name="Configuration"  
-					action="action_firebase_notifications" 
+					action="action_firebase_configurations" 
 					parent="menu_dzexpert_firebase_notification_top"
 					groups="base.group_system,group_firebase_notification_user"
 					sequence="100" />	                

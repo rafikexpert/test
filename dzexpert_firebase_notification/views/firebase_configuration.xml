@@ -1,8 +1,8 @@
 <odoo>
 
-	  <record  id="view_erpish_firebase_notification_form"  model="ir.ui.view">  
+	  <record  id="view_dzexpert_firebase_configuration_form"  model="ir.ui.view">  
 		<field  name="name">Expenses Category</field>  
-		<field  name="model">dzexpert.firebase.notification</field>  
+		<field  name="model">dzexpert.firebase.configuration</field>  
 		<field  name="arch"  type="xml">  
 			<form duplicate="false" delete="false">  
 				<header>
@@ -29,6 +29,7 @@
                     <group>
 						<group>
                             <field name="name" default_focus="1" string="Nom"/>
+                            <field name="key" string="Token"/>
 						</group>
                         <group>
                             <field name="type" options="{'no_create': True}" />
@@ -46,20 +47,21 @@
 	  </record>
 	  
 	  
-        <record id="view_erpish_firebase_notification_tree" model="ir.ui.view">
-            <field name="name">erpish.cahsier.exepnses.tree</field>
-            <field  name="model">dzexpert.firebase.notification</field>  
+        <record id="view_dzexpert_firebase_configuration_tree" model="ir.ui.view">
+            <field name="name">dzexpert.firebase.configuration.tree</field>
+            <field  name="model">dzexpert.firebase.configuration</field>  
             <field name="arch" type="xml">
                 <tree duplicate="false" delete="false">
 					<field name="name"/>
 					<field name="type" options="{'no_create': True}"/>
+                    <field name="key" string="Token"/>
                 </tree>
             </field>
         </record>
 	  
-         <record id="view_firebase_notification_filter" model="ir.ui.view">
-            <field name="name">erpish.unite</field>
-            <field name="model">dzexpert.firebase.notification</field>
+         <record id="view_firebase_configuration_filter" model="ir.ui.view">
+            <field name="name">dzexpert.unite</field>
+            <field name="model">dzexpert.firebase.configuration</field>
             <field name="arch" type="xml">
                 <search string="Search Requests">
                 
@@ -71,9 +73,9 @@
             </field>
         </record>
         
-        <record id="action_firebase_notifications" model="ir.actions.act_window">
+        <record id="action_firebase_configurations" model="ir.actions.act_window">
             <field name="name">Configuration</field>
-            <field name="res_model">dzexpert.firebase.notification</field>
+            <field name="res_model">dzexpert.firebase.configuration</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">[]</field>
