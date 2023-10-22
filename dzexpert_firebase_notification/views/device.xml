@@ -1,0 +1,50 @@
+<odoo>
+	<record  id="view_dzexpert_firebase_device_form"  model="ir.ui.view">  
+		<field  name="name">dzexpert.firebase.device.form</field>  
+		<field  name="model">dzexpert.firebase.device</field>  
+		<field  name="arch"  type="xml">  
+			<form duplicate="false" delete="false">  
+				<sheet>
+                    <group>
+						<group>
+                            <field name="user_id"  string="Nom" />
+                            <field name="device_token" string="Device Token"/>
+                        </group>
+                    </group>				                  
+				</sheet>			
+			</form>  
+		</field> 
+
+	</record>
+
+    <record id="view_dzexpert_firebase_device_tree" model="ir.ui.view">
+        <field name="name">dzexpert.firebase.device.tree</field>
+        <field  name="model">dzexpert.firebase.device</field>  
+        <field name="arch" type="xml">
+            <tree duplicate="false" delete="false">
+                    <field name="user_id"  string="Nom" />
+                    <field name="device_token" string="Device Token"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_firebase_device_filter" model="ir.ui.view">
+        <field name="name">dzexpert.device.filter</field>
+        <field name="model">dzexpert.firebase.device</field>
+        <field name="arch" type="xml">
+            <search string="Search Requests">
+            
+                <separator/>		
+                <field name="user_id"/>                
+            </search>
+        </field>
+    </record>
+    <record id="action_firebase_devices" model="ir.actions.act_window">
+            <field name="name">Device</field>
+            <field name="res_model">dzexpert.firebase.device</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>                   
+    </record>
+</odoo>

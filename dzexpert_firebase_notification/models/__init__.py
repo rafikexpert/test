@@ -3,4 +3,4 @@
 from . import firebase_configuration
 from . import firebase_message
 from . import firebase_topic
-from . import users
+from . import device

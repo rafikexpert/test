@@ -22,7 +22,7 @@
 		'views/firebase_configuration.xml',
 		'views/firebase_message.xml',  
 		'views/menu.xml', 
-    'views/users.xml',
+    'views/device.xml',
 		'security/ir.model.access.csv',  
     'data/cron.xml', 
     'data/sequence.xml',

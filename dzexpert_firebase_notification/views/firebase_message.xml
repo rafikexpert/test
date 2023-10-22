@@ -19,7 +19,7 @@
                             <field name="config_id" options="{'no_create': True}" string="Configuration" attrs="{'readonly': [('state', '=', 'sent')]}"/> 
                             <field name="type" options="{'no_create': True}" string="Type"/>  
                             <field name="topic_ids"  string="Thèmes de destination" widget="many2many_tags" attrs="{'invisible': [('type', '!=', 'topic')],'readonly': [('state', '=', 'sent')]}"/> 
-                            <field name="user_dest_ids"  string="Utilisateurs de destination" widget="many2many_tags" attrs="{'invisible': [('type', '!=', 'user')],'readonly': [('state', '=', 'sent')]}"/>  
+                            <field name="device_dest_ids"  string="Utilisateurs de destination" widget="many2many_tags" attrs="{'invisible': [('type', '!=', 'user')],'readonly': [('state', '=', 'sent')]}"/>  
                         </group>
                         <group>  
                             <field name="origin"  string="Origine" attrs="{'readonly': [('state', '=', 'sent')]}"/>
@@ -39,7 +39,8 @@
                 <field name="content" string="Contenu"/>
                 <field name="state" string = "Etat"/>
                 <field name="type" options="{'no_create': True}"/>
-                <field name="user_dest_ids" widget="many2many_tags"/>
+                <field name="topic_ids"  string="Thèmes de destination" widget="many2many_tags"/>
+                <field name="device_dest_ids" widget="many2many_tags"/>
             </tree>
         </field>
     </record>
@@ -51,7 +52,7 @@
             <search string="Search Requests">
             
                 <separator/>		
-                <field name="user_dest_ids"/>
+                <field name="device_dest_ids"/>
                 <field name="state"/>
                 
             </search>

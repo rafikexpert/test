@@ -13,7 +13,13 @@ _logger = logging.getLogger(__name__)
 
 
 
-class Users(models.Model):
-    _inherit = 'res.users'
-
-    firebase_device_token = fields.Char(string="Firebase Device Token")
+class Device(models.Model):
+	_name = 'dzexpert.firebase.device' 
+	_inherit=['mail.thread']
+	_description = "Users's devices"	
+	_order = 'user_id asc'
+	_rec_name ='user_id'
+ 
+ 
+	user_id = fields.Many2one("res.users",string="User")
+	device_token = fields.Char(string='Device Token', required=True)

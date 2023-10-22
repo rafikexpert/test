@@ -24,35 +24,35 @@ class Message(models.Model):
 	_description = "Firebase Message"	
 	_order = 'reference asc'
 	_rec_name ='reference'
- 
- 
+
+
 	reference = fields.Char(string='Réference', required=False, copy=False, readonly=True, index=True, default=lambda self: 'New',track_visibility='onchange')
 	content = fields.Text(string="Content",required = False)
 	config_id = fields.Many2one("dzexpert.firebase.configuration",string="Configuration")
 	type = fields.Selection(related="config_id.type",string="Type")
-	user_dest_ids = fields.Many2many("res.users", string="Utilisateurs de destination")
+	device_dest_ids = fields.Many2many("dzexpert.firebase.device", string="Utilisateurs de destination")
 	topic_ids=fields.Many2many("dzexpert.firebase.topic", string="Thème de destination")
 	state = fields.Selection([("draft","Draft"),("tosend","toSend"),("sent","Sent")],required=True, copy=False,tracking=True, default='draft')
 	origin = fields.Char(string="Origine")
-		
+
 	def action_confirm(self):
         # installing pyfcm package
-		
+
 		command = 'pip install pyfcm'
 		cammand=command.split(' ')
 		subprocess.run([sys.executable, "-m", cammand[0], cammand[1], cammand[2]], capture_output=True,text=True)
-		
+
 
 		for rec in self:
 			if rec.reference =='New':
 				tmp = self.env['ir.sequence'].next_by_code('dzexpert.firebase.message.sequence')
 				rec.update({'reference':tmp,'state':'tosend'})
-	
+
 	@api.model
 	def cron_send(self):
 		messages=self.search([('state','=','tosend')])
 		messages.action_send()
-  
+
 	def action_send(self):
 		for rec in self:
 			if rec.state == 'tosend':
@@ -69,9 +69,9 @@ class Message(models.Model):
 					# Add more data fields as needed
 					}
 
-					for user in rec.user_dest_ids:
+					for device in rec.device_dest_ids:
 						# Get the Firebase device token for each user (you need to store this information)
-						firebase_device_token = user.firebase_device_token
+						firebase_device_token = device.device_token
 
 						# Send the message to the user's device
 						result = push_service.notify_single_device(
@@ -107,3 +107,4 @@ class Message(models.Model):
 					)	
 						if result["success"]==1:
 								rec.state = 'sent'
+        
