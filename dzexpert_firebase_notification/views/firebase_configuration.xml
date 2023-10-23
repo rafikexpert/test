@@ -6,11 +6,8 @@
 		<field  name="arch"  type="xml">  
 			<form duplicate="false" delete="false">  
 				<header>
-					 <button name="action_hello" 
-						type="object"  string="Run Check" 
-						id="toprint" class="oe_highlight"/>
+
 											
-					
                 </header>
 				<sheet>
 

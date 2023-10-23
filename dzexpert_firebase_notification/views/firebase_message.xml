@@ -13,6 +13,7 @@
                     <group>
 						<group>
                             <field name="reference" default_focus="1" string="Référence" />
+                            <field name="title" default_focus="1" string="Titre" attrs="{'readonly': [('state', '=', 'sent')]}"/>
                             <field name="content" default_focus="1" string="Contenu" attrs="{'readonly': [('state', '=', 'sent')]}"/>
 						</group>
                         <group>
@@ -36,10 +37,12 @@
         <field  name="model">dzexpert.firebase.message</field>  
         <field name="arch" type="xml">
             <tree duplicate="false" delete="false">
-                <field name="content" string="Contenu"/>
+                <field name="reference"/>
+                <field name="title"/>
                 <field name="state" string = "Etat"/>
                 <field name="type" options="{'no_create': True}"/>
                 <field name="topic_ids"  string="Thèmes de destination" widget="many2many_tags"/>
+                <field name="config_id"/>
                 <field name="device_dest_ids" widget="many2many_tags"/>
             </tree>
         </field>
@@ -52,8 +55,14 @@
             <search string="Search Requests">
             
                 <separator/>		
-                <field name="device_dest_ids"/>
-                <field name="state"/>
+              <field name="reference"/>
+                <field name="title"/>
+                <field name="state" string = "Etat"/>
+                <field name="type" options="{'no_create': True}"/>
+                <field name="topic_ids"  string="Thèmes de destination" widget="many2many_tags"/>
+                <field name="config_id"/>
+                <field name="device_dest_ids" widget="many2many_tags"/>
+
                 
             </search>
         </field>

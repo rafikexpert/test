@@ -15,7 +15,6 @@ _logger = logging.getLogger(__name__)
 
 class Device(models.Model):
 	_name = 'dzexpert.firebase.device' 
-	_inherit=['mail.thread']
 	_description = "Users's devices"	
 	_order = 'user_id asc'
 	_rec_name ='user_id'
