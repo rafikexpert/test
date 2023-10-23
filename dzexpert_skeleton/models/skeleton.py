@@ -15,7 +15,7 @@ _logger = logging.getLogger(__name__)
 
 	
 	
-class Consolidation(models.Model):
+class Skeleton(models.Model):
 	_name = 'dzexpert.skeleton'
 	_inherit=['mail.thread']
 	_description = "Skeleton"	
