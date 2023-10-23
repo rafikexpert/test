@@ -54,3 +54,22 @@ class Skeleton(models.Model):
 		res['domain'] = [('res_model', '=', 'erpish.achat.demande'), ('res_id', 'in', self.ids)]
 		res['context'] = {'create':True,'delete':True,'default_res_model': 'erpish.achat.demande', 'default_res_id': self.id}
 		return res
+
+	##Must be called on an object
+	def api_mark_skeleton_done(self):
+		for rec in self:
+			if rec.state=='draft':
+				rec.state='done'
+
+	##Belongs to the class 
+	@api.model
+	def api_get_skeleton_documents(self):
+		docs=self.env['dzexpert.skeleton'].search([('state','=','draft')])
+		ret={'state':200,'data':[],'message':''}
+		for doc in docs:
+			ret.append({
+				'id':doc.id,
+				'name':doc.name,
+				'content':doc.description,
+			})
+		return json.dumps(ret)
