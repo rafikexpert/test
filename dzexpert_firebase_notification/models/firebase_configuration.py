@@ -17,7 +17,6 @@ _logger = logging.getLogger(__name__)
 	
 class Configuration(models.Model):
 	_name = 'dzexpert.firebase.configuration' 
-	_inherit=['mail.thread']
 	_description = "Firebase Configuration"	
 	_order = 'name asc'
 
@@ -25,13 +24,6 @@ class Configuration(models.Model):
 	active = fields.Boolean('Active', default=True)
 	
 	name = fields.Char(string='Nom', required=True,track_visibility='onchange')	
-	image_small = fields.Binary("Image", attachment=True)	
 	description=fields.Html(string='Description')
-	type = fields.Selection(selection=[('topic','Topic'),('user','User')], string='Type')
-	key = fields.Char(string='Token', required=True)	
-		
-	def action_hello(self):
-		f=1
-		
-	def cron_update(self):
-		f=1
+	type = fields.Selection([('topic','Topic'),('user','User')], string='Type',required=True)
+	key = fields.Text(string='Token', required=True)	

@@ -20,7 +20,6 @@ _logger = logging.getLogger(__name__)
 	
 class Topic(models.Model):
 	_name = 'dzexpert.firebase.topic' 
-	_inherit=['mail.thread']
 	_description = "Firebase Topic"	
 	_order = 'name asc'
 

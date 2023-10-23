@@ -31,8 +31,6 @@ class Consolidation(models.Model):
 	description=fields.Html(string='Description')
 	company_id = fields.Many2one('res.company', 'Entreprise Locale')
 		
-	currency_id = fields.Many2one(
-		'res.currency', string='Currency', default=_default_currency, readonly=True)	
 	attachment_number = fields.Integer(compute='_compute_attachment_number', string='P.J.')	
 		
 	

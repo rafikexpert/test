@@ -27,6 +27,7 @@ class Message(models.Model):
 
 
 	reference = fields.Char(string='Réference', required=False, copy=False, readonly=True, index=True, default=lambda self: 'New',track_visibility='onchange')
+	title = fields.Char(string='Titre', required=True, copy=False,index=True)
 	content = fields.Text(string="Content",required = False)
 	config_id = fields.Many2one("dzexpert.firebase.configuration",string="Configuration")
 	type = fields.Selection(related="config_id.type",string="Type")
@@ -36,13 +37,6 @@ class Message(models.Model):
 	origin = fields.Char(string="Origine")
 
 	def action_confirm(self):
-        # installing pyfcm package
-
-		command = 'pip install pyfcm'
-		cammand=command.split(' ')
-		subprocess.run([sys.executable, "-m", cammand[0], cammand[1], cammand[2]], capture_output=True,text=True)
-
-
 		for rec in self:
 			if rec.reference =='New':
 				tmp = self.env['ir.sequence'].next_by_code('dzexpert.firebase.message.sequence')
@@ -51,7 +45,7 @@ class Message(models.Model):
 	@api.model
 	def cron_send(self):
 		messages=self.search([('state','=','tosend')])
-		messages.action_send()
+		#messages.action_send()
 
 	def action_send(self):
 		for rec in self:
@@ -63,17 +57,14 @@ class Message(models.Model):
 					message_title = rec.reference
 					message_body = rec.content
 					data_message = {
-					"body": rec.content,
-					"reference": rec.reference,
-					"origin_user": rec.origin
-					# Add more data fields as needed
+						"body": rec.content,
+						"reference": rec.title,
+						"origin_user": rec.origin
 					}
 
 					for device in rec.device_dest_ids:
-						# Get the Firebase device token for each user (you need to store this information)
 						firebase_device_token = device.device_token
 
-						# Send the message to the user's device
 						result = push_service.notify_single_device(
 							registration_id = firebase_device_token,
 							message_title = message_title,
@@ -87,17 +78,14 @@ class Message(models.Model):
 					# Initialize the FCM client with your Firebase server key
 					push_service = FCMNotification(rec.config_id.key)
 
-					# Prepare the message payload
-					message_title = rec.reference
+					message_title = rec.title
 					message_body = rec.content
 					data_message = {
 						"body": rec.content,
-						"reference": rec.reference,
+						"reference": rec.title,
 						"origin_user": rec.origin
-						# Add more data fields as needed
 					}
 					for tp in rec.topic_ids:
-					# Send the message to the specified topic
 						topic_name=tp.name
 						result = push_service.notify_topic_subscribers(
 							topic_name = topic_name,
@@ -108,3 +96,4 @@ class Message(models.Model):
 						if result["success"]==1:
 								rec.state = 'sent'
         
+			rec.state = 'tosend'
