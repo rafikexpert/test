@@ -1,0 +1,200 @@
+<odoo>
+    <!-- Actions -->
+    <record id="tutorial_action" model="ir.actions.act_window">
+        <field name="name">Tutoriels</field>
+        <field name="res_model">dzexpert.manage.modules.tutorial</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                There are no tutorials to show
+            </p>
+        </field>
+    </record>
+    <record id="topic_action" model="ir.actions.act_window">
+        <field name="name">Topics</field>
+        <field name="res_model">dzexpert.manage.modules.topic</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="link_action" model="ir.actions.act_window">
+        <field name="name">Liens</field>
+        <field name="res_model">dzexpert.manage.modules.link</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="video_action" model="ir.actions.act_window">
+        <field name="name">Videos</field>
+        <field name="res_model">dzexpert.manage.modules.video</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Views: Forms -->
+    <record id="link_view_form" model="ir.ui.view">
+        <field name="name">link.view.form</field>
+        <field name="model">dzexpert.manage.modules.link</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="url" widget="url" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="video_view_form" model="ir.ui.view">
+        <field name="name">video.view.form</field>
+        <field name="model">dzexpert.manage.modules.video</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="video_url" widget="url" />
+                        <field name="description" widget="html" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="topic_view_form" model="ir.ui.view">
+        <field name="name">topic.view.form</field>
+        <field name="model">dzexpert.manage.modules.topic</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="parent_id" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="tutorial_view_form" model="ir.ui.view">
+        <field name="name">tutorial.view.form</field>
+        <field name="model">dzexpert.manage.modules.tutorial</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_get_attachment_view"
+                            class="oe_stat_button"
+                            icon="fa-book"
+                            type="object">
+                            <field name="attachment_number" widget="statinfo"
+                                string="Pièces Jointes" />
+                        </button>
+                    </div>
+                    <group>
+                        <field name="title" />
+                        <field name="tasks_ids" widget="many2many_tags" />
+                        <field name="topic_ids" widget="many2many_tags" />
+                        <field name="level" />
+                        <field name="language_id" />
+                        <field name="content" />
+                        <field name="external_link_ids">
+                            <tree editable="bottom">
+                                <field name="url" widget="url" />
+                            </tree>
+                        </field>
+                        <field name="video_ids" widget="one2many">
+                            <tree editable="bottom">
+                                <field name="name" />
+                                <field name="video_url" widget="url" />
+                                <field name="description" widget="html" />
+                            </tree>
+                        </field>
+                        <field name="related_tutorial_ids" widget="many2many_tags"
+                            options="{'no_create': True}" domain="[('id', 'not in', [active_id])]"
+                            context="{'active_id': active_id}" />
+                        <field name="translation_ids" widget="many2many_tags"
+                            options="{'no_create': True}" domain="[('id', 'not in', [active_id])]"
+                            context="{'active_id': active_id}" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="language_view_form" model="ir.ui.view">
+        <field name="name">language.view.form</field>
+        <field name="model">dzexpert.manage.modules.language</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <!-- Views: Tree -->
+    <record id="tutorial_view_tree" model="ir.ui.view">
+        <field name="name">tutorial.view.tree</field>
+        <field name="model">dzexpert.manage.modules.tutorial</field>
+        <field name="arch" type="xml">
+            <tree duplicate="false" delete="false">
+                <field name="title" />
+                <field name="tasks_ids" widget="many2many_tags" />
+                <field name="language_id" />
+                <field name="topic_ids" widget="many2many_tags" />
+                <field name="level" />
+            </tree>
+        </field>
+    </record>
+    <record id="language_view_tree" model="ir.ui.view">
+        <field name="name">language.view.tree</field>
+        <field name="model">dzexpert.manage.modules.language</field>
+        <field name="arch" type="xml">
+            <tree duplicate="false" delete="false">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record id="topic_view_tree" model="ir.ui.view">
+        <field name="name">topic.view.tree</field>
+        <field name="model">dzexpert.manage.modules.topic</field>
+        <field name="arch" type="xml">
+            <tree duplicate="false" delete="false">
+                <field name="full_name" />
+                <!-- <button name="action_show_related_tutorials"
+                    string="Show Related Tutorials"
+                    type="object"
+                    class="oe_highlight"
+                    icon="fa-book" /> -->
+            </tree>
+        </field>
+    </record>
+
+</odoo>

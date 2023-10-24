@@ -1,36 +1,110 @@
 <odoo>
-    <record id="action_tasks" model="ir.actions.act_window">
-        <field name="name">Tasks</field>
-        <field name="res_model">dzexpert_manage_modules.task</field>
+    <!-- Actions -->
+    <record id="task_action" model="ir.actions.act_window">
+        <field name="name">Tâches</field>
+        <field name="res_model">dzexpert.manage.modules.task</field>
         <field name="type">ir.actions.act_window</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                There are no tasks to show
+            </p>
+        </field>
     </record>
-    <record id="action_postes" model="ir.actions.act_window">
+    <record id="poste_action" model="ir.actions.act_window">
         <field name="name">Postes</field>
-        <field name="res_model">dzexpert_manage_modules.poste</field>
+        <field name="res_model">dzexpert.manage.modules.poste</field>
         <field name="type">ir.actions.act_window</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
     </record>
-    <record id="action_categories" model="ir.actions.act_window">
+    <record id="category_action" model="ir.actions.act_window">
         <field name="name">Categories</field>
-        <field name="res_model">dzexpert_manage_modules.category</field>
+        <field name="res_model">dzexpert.manage.modules.category</field>
         <field name="type">ir.actions.act_window</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
     </record>
 
-    <record id="view_tasks_tree" model="ir.ui.view">
-        <field name="name">Tasks</field>
-        <field name="model">dzexpert_manage_modules.task</field>
+    <!-- Views: Forms -->
+    <record id="task_view_form" model="ir.ui.view">
+        <field name="name">task.view.form</field>
+        <field name="model">dzexpert.manage.modules.task</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="description" widget="html" />
+                        <field name="poste_id" />
+                        <field name="category_id" />
+                    </group>
+                    <notebook>
+                        <page name="Tâches dépendantes" string="Tâches dépendantes"
+                            domain="[('id', 'not in', [active_id])]"
+                            context="{'active_id': active_id}">
+                            <field name="dependent_tasks_ids">
+                                <tree create="false">
+                                    <field name="name" />
+                                    <field name="category_id" />
+                                    <field name="poste_id" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="poste_view_form" model="ir.ui.view">
+        <field name="name">poste.view.form</field>
+        <field name="model">dzexpert.manage.modules.poste</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="category_view_form" model="ir.ui.view">
+        <field name="name">category.view.form</field>
+        <field name="model">dzexpert.manage.modules.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <!-- Views: Tree-->
+    <record id="task_view_tree" model="ir.ui.view">
+        <field name="name">Tâches</field>
+        <field name="model">dzexpert.manage.modules.task</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name" />
-                <field name="description" />
                 <field name="category_id" />
                 <field name="poste_id" />
                 <field name="dependent_tasks_ids" widget="many2many_tags">
@@ -39,20 +113,4 @@
             </tree>
         </field>
     </record>
-    <record id="view_tasks_form" model="ir.ui.view">
-        <field name="name">Task</field>
-        <field name="model">dzexpert_manage_modules.task</field>
-        <field name="arch" type="xml">
-            <form>
-                <group>
-                    <field name="name" />
-                    <field name="description" />
-                    <field name="poste_id" />
-                    <field name="category_id" />
-                    <field name="dependent_tasks_ids" widget="many2many_tags" />
-                </group>
-            </form>
-        </field>
-    </record>
-
 </odoo>
