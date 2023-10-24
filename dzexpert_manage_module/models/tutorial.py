@@ -120,24 +120,9 @@ class Tutorial(models.Model):
         return result
 
     def _compute_attachment_number(self):
-        # logging.info(self.ids)
-        # attachment_data = self.env["ir.attachment"].read_group(
-        #     [("res_model", "=", "dzexpert.manage.modules.tutorial"), ("res_id", "in", self.ids)],
-        #     ["res_id"],
-        #     ["res_id"],
-        # )
-        # logging.info("_________________________")
-        # logging.info(attachment_data)
-        # attachment = dict(
-        #     (data["res_id"], data["res_id_count"]) for data in attachment_data
-        # )
-        # for expense in self:
-        #     expense.attachment_number = attachment.get(expense.id, 0)
-
-        
         for record in self:
             attachment_domain = [
-                ('res_model', '=', 'dzexpert.manage.modules.tutorial'),  # Replace with your model's name
+                ('res_model', '=', 'dzexpert.manage.modules.tutorial'),
                 ('res_id', '=', record.id),
             ]
             record.attachment_number = self.env['ir.attachment'].search_count(attachment_domain)
