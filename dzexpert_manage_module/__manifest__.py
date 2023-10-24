@@ -21,7 +21,6 @@
         "views/model.xml",
         "views/tutorial.xml",
         "views/menu.xml",
-        "data/cron.xml",
         "security/ir.model.access.csv",
     ],
     "installable": True,
