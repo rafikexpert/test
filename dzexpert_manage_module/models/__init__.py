@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
 
 from . import task
-from . import model
+from . import module
 from . import tutorial

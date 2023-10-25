@@ -129,7 +129,8 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="change_state" string="Change d'état" type="object" class="btn-primary"/>
+                    <button name="change_state" groups="dzexpert_manage_module.group_developer" 
+                    string="Change d'état" type="object" class="btn-primary"/>
                     <field name="state" widget="statusbar"
                         statusbar_visible="draft,specs,dev,testing,done" />
                 </header>
@@ -193,7 +194,7 @@
         <field name="name">menu.view.tree</field>
         <field name="model">dzexpert.manage.modules.menu</field>
         <field name="arch" type="xml">
-            <tree duplicate="false" delete="false">
+            <tree duplicate="false" >
                 <field name="name" />
                 <field name="sequence" />
                 <field name="parent_id" />
@@ -204,7 +205,7 @@
         <field name="name">module.category.view.tree</field>
         <field name="model">dzexpert.manage.modules.module.category</field>
         <field name="arch" type="xml">
-            <tree duplicate="false" delete="false">
+            <tree duplicate="false" >
                 <field name="name" />
             </tree>
         </field>
@@ -213,7 +214,7 @@
         <field name="name">security.group.view.tree</field>
         <field name="model">dzexpert.manage.modules.security.group</field>
         <field name="arch" type="xml">
-            <tree duplicate="false" delete="false">
+            <tree duplicate="false" >
                 <field name="name" />
                 <field name="technical_name" />
                 <field name="type" />
@@ -224,7 +225,7 @@
         <field name="name">module.view.tree</field>
         <field name="model">dzexpert.manage.modules.module</field>
         <field name="arch" type="xml">
-            <tree duplicate="false" delete="false">
+            <tree duplicate="false" >
                 <field name="icon" widget="image" class="oe_avatar"
                     options='{"preview_image": "icon", "size": [30, 30]}' />
                 <field name="name" />

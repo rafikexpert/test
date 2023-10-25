@@ -65,12 +65,12 @@
 		sequence="60" />
 
 	<menuitem id="link_menu"
-		name="Lien externe"
+		name="Liens externes"
 		action="link_action"
 		parent="configuration_menu"
 		sequence="70" />
 	<menuitem id="video_menu"
-		name="Video"
+		name="Videos"
 		action="video_action"
 		parent="configuration_menu"
 		sequence="80" />

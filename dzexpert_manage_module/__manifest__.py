@@ -18,7 +18,7 @@
     "data": [
         "security/security.xml",
         "views/task.xml",
-        "views/model.xml",
+        "views/module.xml",
         "views/tutorial.xml",
         "views/menu.xml",
         "security/ir.model.access.csv",

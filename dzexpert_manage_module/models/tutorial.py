@@ -53,7 +53,7 @@ class Video(models.Model):
     _inherit = ["mail.thread"]
     _description = "Video"
 
-    name = fields.Char(string="Name", required=True)
+    name = fields.Char(string="Nom", required=True)
     video_url = fields.Char(string="Video URL", required=True)
     description = fields.Html(string="Description")
 
