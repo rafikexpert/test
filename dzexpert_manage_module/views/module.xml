@@ -164,7 +164,7 @@
                                 </tree>
                             </field>
                         </page>
-                        <page name="emails" string="Eamils">
+                        <page name="emails" string="Emails">
                             <field name="email_ids">
                                 <tree editable="bottom">
                                     <field name="name" />
