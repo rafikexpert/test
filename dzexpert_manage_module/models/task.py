@@ -30,6 +30,11 @@ class Task(models.Model):
     )
     poste_id = fields.Many2one("dzexpert.manage.modules.poste", string="Poste")
     parent_id = fields.Many2one("dzexpert.manage.modules.task", string="Parent")
+    security_group_ids = fields.One2many(
+        "dzexpert.manage.modules.security.group",
+        "task_id",
+        string="Groupes de sécurité",
+    )
     dependent_tasks_ids = fields.Many2many(
         "dzexpert.manage.modules.task",
         relation="dzexpert_manage_modules_dependent_task_rel",

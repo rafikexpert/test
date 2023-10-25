@@ -9,6 +9,7 @@
 		name="Tâches"
 		action="task_action"
 		parent="task_menu_root"
+		groups="group_erp_integrator,group_developer"
 		sequence="10" />
 	<menuitem id="module_menu"
 		name="Modules"

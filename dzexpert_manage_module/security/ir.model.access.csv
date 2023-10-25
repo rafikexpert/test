@@ -6,10 +6,12 @@ access_post_1,access post,model_dzexpert_manage_modules_poste,group_erp_integrat
 access_category_1,access category,model_dzexpert_manage_modules_category,group_erp_integrator,1,1,1,1
 access_security_group_1,access security group 1,model_dzexpert_manage_modules_security_group,group_developer,1,1,1,1
 access_security_group_2,access security group 2,model_dzexpert_manage_modules_security_group,group_erp_integrator,1,0,0,0
-access_security_group_2,access security group 2,model_dzexpert_manage_modules_security_group,group_programmer,1,0,0,0
+access_security_group_3,access security group 2,model_dzexpert_manage_modules_security_group,group_programmer,1,0,0,0
+access_security_group_4,access security group 2,model_dzexpert_manage_modules_security_group,group_learner,1,0,0,0
 access_menu_1,access menu,model_dzexpert_manage_modules_menu,group_developer,1,1,1,1
 access_menu_2,access menu,model_dzexpert_manage_modules_menu,group_erp_integrator,1,0,0,0
-access_menu_2,access menu,model_dzexpert_manage_modules_menu,group_programmer,1,0,0,0
+access_menu_3,access menu,model_dzexpert_manage_modules_menu,group_learner,1,0,0,0
+access_menu_4,access menu,model_dzexpert_manage_modules_menu,group_programmer,1,0,0,0
 access_module_1,access module 1,model_dzexpert_manage_modules_module,group_developer,1,1,1,1
 access_module_2,access module 2,model_dzexpert_manage_modules_module,group_erp_integrator,1,0,0,0
 access_module_3,access module 3,model_dzexpert_manage_modules_module,group_programmer,1,0,0,0

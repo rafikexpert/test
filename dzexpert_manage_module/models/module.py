@@ -12,6 +12,7 @@ class SecurityGroup(models.Model):
     name = fields.Char("Nom", required=True)
     technical_name = fields.Char("Nom technique", required=True)
     module_id = fields.Many2one("dzexpert.manage.modules.module", string="module")
+    task_id = fields.Many2one("dzexpert.manage.modules.task", string="task")
     type = fields.Selection(
         [
             ("app", "App"),
