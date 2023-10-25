@@ -145,7 +145,7 @@
             <form>
                 <header>
                     <button name="change_state" groups="dzexpert_manage_module.group_developer" states="draft,specs,dev,testing"
-                    string="Change d'état" type="object" class="btn-primary"/>
+                    string="Changer l'état" type="object" class="btn-primary"/>
                     <button name="cancel_state" groups="dzexpert_manage_module.group_developer" states="specs,dev,testing,done"
                     string="Annuler l'état" type="object" class="btn-danger"/>
                     <field name="state" widget="statusbar"
