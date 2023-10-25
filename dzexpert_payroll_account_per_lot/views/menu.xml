@@ -1,0 +1,17 @@
+<odoo>
+
+    <menuitem  id="menu_dzexpert_payroll_account_per_lot_top"  
+        name="Skeleton"  
+        web_icon="dzexpert_payroll_account_per_lot,static/description/icon.png"
+        groups="group_skeleton_user"
+        sequence="99" />
+
+
+				<menuitem  id="menu_erpish_c_docs"  
+					name="Skeleton Documents"  
+					action="action_skeleton_docs" 
+					parent="menu_dzexpert_payroll_account_per_lot_top"
+					groups="base.group_system,group_skeleton_user"
+					sequence="100" />	
+
+</odoo>
