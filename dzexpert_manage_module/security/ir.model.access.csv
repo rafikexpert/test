@@ -1,6 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_task_1,access task,model_dzexpert_manage_modules_task,group_erp_integrator,1,1,1,1
 access_task_2,access task2,model_dzexpert_manage_modules_task,group_teacher,1,0,0,0
+access_task_3,access task 3,model_dzexpert_manage_modules_task,group_learner,1,0,0,0
 access_post_1,access post,model_dzexpert_manage_modules_poste,group_erp_integrator,1,1,1,1
 access_category_1,access category,model_dzexpert_manage_modules_category,group_erp_integrator,1,1,1,1
 access_security_group_1,access security group 1,model_dzexpert_manage_modules_security_group,group_developer,1,1,1,1

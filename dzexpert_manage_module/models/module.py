@@ -148,3 +148,13 @@ class Module(models.Model):
             self.state = "testing"
         elif self.state == "testing":
             self.state = "done"
+
+    def cancel_state(self):
+        if self.state == "done":
+            self.state = "testing"
+        elif self.state == "testing":
+            self.state = "dev"
+        elif self.state == "dev":
+            self.state = "specs"
+        elif self.state == "specs":
+            self.state = "draft"

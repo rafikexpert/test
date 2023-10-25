@@ -20,6 +20,11 @@
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                There are no emails to show
+            </p>
+        </field>
     </record>
     <record id="menu_action" model="ir.actions.act_window">
         <field name="name">Menus</field>
@@ -28,6 +33,11 @@
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                There are no menus to show
+            </p>
+        </field>
     </record>
     <record id="module_action" model="ir.actions.act_window">
         <field name="name">Modules</field>
@@ -49,6 +59,11 @@
         <field name="view_mode">tree,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                There are no module category to show
+            </p>
+        </field>
     </record>
     <!-- Views: Forms -->
     <record id="security_groups_view_form" model="ir.ui.view">
@@ -129,8 +144,10 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="change_state" groups="dzexpert_manage_module.group_developer" 
+                    <button name="change_state" groups="dzexpert_manage_module.group_developer" states="draft,specs,dev,testing"
                     string="Change d'état" type="object" class="btn-primary"/>
+                    <button name="cancel_state" groups="dzexpert_manage_module.group_developer" states="specs,dev,testing,done"
+                    string="Annuler l'état" type="object" class="btn-danger"/>
                     <field name="state" widget="statusbar"
                         statusbar_visible="draft,specs,dev,testing,done" />
                 </header>
