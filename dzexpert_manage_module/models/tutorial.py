@@ -28,6 +28,16 @@ class Topic(models.Model):
                 parent = parent.parent_id
             topic.full_name = full_name
 
+    def open_tutorials(self):
+        return {
+            "name": "{} Tutoriels".format(self.name),
+            "type": "ir.actions.act_window",
+            "res_model": "dzexpert.manage.modules.tutorial",
+            "view_mode": "tree,form",
+            "domain": [("id", "in", self.tutorial_ids.ids)],
+            "flags": {"form": {"action_buttons": False}},
+        }
+
 
 class Link(models.Model):
     _name = "dzexpert.manage.modules.link"
@@ -122,11 +132,12 @@ class Tutorial(models.Model):
     def _compute_attachment_number(self):
         for record in self:
             attachment_domain = [
-                ('res_model', '=', 'dzexpert.manage.modules.tutorial'),
-                ('res_id', '=', record.id),
+                ("res_model", "=", "dzexpert.manage.modules.tutorial"),
+                ("res_id", "=", record.id),
             ]
-            record.attachment_number = self.env['ir.attachment'].search_count(attachment_domain)
-
+            record.attachment_number = self.env["ir.attachment"].search_count(
+                attachment_domain
+            )
 
     def action_get_attachment_view(self):
         self.ensure_one()

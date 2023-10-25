@@ -188,11 +188,11 @@
         <field name="arch" type="xml">
             <tree duplicate="false" delete="false">
                 <field name="full_name" />
-                <!-- <button name="action_show_related_tutorials"
-                    string="Show Related Tutorials"
+                <button name="open_tutorials"
+                    string="Tutoriels"
                     type="object"
                     class="oe_highlight"
-                    icon="fa-book" /> -->
+                    icon="fa-list" />
             </tree>
         </field>
     </record>
