@@ -21,9 +21,8 @@
                     </div>
                     <group>
                         <group >
-                            <field name="account_move_id" string='Ecriture comptable' />
+                            <field name="account_move_id" string="Ecriture comptable" readonly="1"/>
                         </group>
-                        <field name="conf_payslip_accouting" />
                     </group>
         
                 </page>    

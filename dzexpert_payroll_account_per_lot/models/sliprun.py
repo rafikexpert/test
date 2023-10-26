@@ -31,46 +31,51 @@ class MySlipRun(models.Model):
 	def action_cancel(self):	
 		self.ensure_one()
 		payslip_ids = [payslip.id for payslip in  self.slip_ids]
-		related_move_ids = self.env['account.move'].serach([('payslip_id','in',payslip_ids)])
+		related_move_ids = self.env['account.move'].search([('payslip_id','in',payslip_ids)])
 		
-		for move in related_move_ids:
-			if move:
-				move.update({
-					'line_ids': [(5,0,0)]
-				})
+		for move in related_move_ids:		
+			move.update({
+				'line_ids': [(5,0,0)]
+			})
+			move.unlink()
 
 		
 	def action_confirm(self):	
-		declassified_value = 0
 		self.ensure_one()
 		if self.payslip_count_draft!=0:
 			raise UserError('le nombre des fiches paie en brouillon doit etre 0')
-		# if self.payslip_count_draft==0:
-		# 	raise UserError('le nombre des fiches paie en brouillon doit etre 0')
-		
-		raise UserError('button clicked confirm clicked')
-		
-		move = self.env['account.move'].create({
+
+		payslip_ids = [payslip.id for payslip in  self.slip_ids]
+		related_move_ids = self.env['account.move'].search([('payslip_id','in',payslip_ids)])
+		if not related_move_ids:
+			move = self.env['account.move'].create({
 					'journal_id': self.journal_id.id,
 					'ref': ' ',
 					'company_id':self.company_id.id,
 			})
-		# vals1 = {'move_id':move.id,
-		# 		'account_id':self.env.user.company_id.declassify_stock_account_adj.id ,
-		# 		'partner_id': self._uid,
-		# 		'credit': declassified_value,
-		# 		'debit':0,
-		# 		'name':'Operations de declassifications',
-		# 		'company_id':self.company_id.id,
-		# 	}
-		# vals2 = {'move_id':move.id,
-		# 		'account_id':self.env.user.company_id.declassify_stock_account_adj_minus.id ,
-		# 		'partner_id': self._uid,
-		# 		'credit': 0,
-		# 		'debit':declassified_value,
-		# 		'name':'Operations de declassifications',
-		# 		'company_id':self.company_id.id,
-		# 	}
-		# self.env['account.move.line'].sudo().with_context(check_move_validity=False).create(vals1)
-		# self.env['account.move.line'].sudo().with_context(check_move_validity=False).create(vals2)
-		# move.sudo().with_context(check_move_validity=False).post()
+			if self.conf_payslip_accouting == 'batch':
+				credit = self.compute_payslips_credit()
+				vals = {'move_id':move.id,
+					'account_id':self.journal_id.id ,
+					'partner_id': self._uid,
+					'credit': credit,
+					'debit':0,
+					'name':'Operation paie ' + str(self.name),
+					'company_id':self.company_id.id,
+				}
+				self.env['account.move.line'].sudo().with_context(check_move_validity=False).create(vals)
+				move.sudo().with_context(check_move_validity=False).post()	
+				self.update({'account_move_id':move})
+			else:
+				_logger.debug('call the super method')
+				credit = 900
+			
+			# Under Lot there should be a new TAB, called : Comptabilite with :
+			# Link to accounting Entry : account.move
+			# Button to confirm and generate the accountry entry for confirmed salary slips
+			# Button the cancel the accounting entry with the special access right.
+			
+		
+	@api.model
+	def compute_payslips_batches_credit(self):
+		return 100
