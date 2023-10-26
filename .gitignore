@@ -1,0 +1,12 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+/.venv
+/.pytest_cache
+
+# Pycharm
+.idea
+
+# Visual Studio cache/options directory
+.vs/
+.vscode

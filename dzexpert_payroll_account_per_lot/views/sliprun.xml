@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <odoo>
 
     <record id="view_hr_job_form_add_salary_slip_run_form_modif" model="ir.ui.view">
@@ -9,7 +8,24 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='note']/.." position="after">
                 <page string="Comptabilite">
-                    <field name="name" />
+                    <div style="padding:5px;margin-buttom:10px;" >
+                        <button name="action_confirm" type="object" 
+                            string="Confirmer" 
+                            class="btn-primary pull-left"
+                        />
+                        <button name="action_cancel" type="object" 
+                            string="Anuller l'ecriture comptable" 
+                            class="btn-secondary pull-left"
+                            groups='dzexpert_payroll_account_per_lot.technical_group_show_cancel_button'
+                        />
+                    </div>
+                    <group>
+                        <group >
+                            <field name="account_move_id" string='Ecriture comptable' />
+                        </group>
+                        <field name="conf_payslip_accouting" />
+                    </group>
+        
                 </page>    
             </xpath>
         </field>

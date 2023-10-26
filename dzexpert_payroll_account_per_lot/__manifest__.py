@@ -18,7 +18,7 @@
 
 	],
     'data': [
-		# 'security/security.xml',
+		'security/security.xml',
     'views/sliprun.xml',
     'views/company.xml',
 		# 'security/ir.model.access.csv',   

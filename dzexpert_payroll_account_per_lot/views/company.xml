@@ -10,7 +10,7 @@
             <xpath expr="//page[@name='pg_accounting']/group" position="inside">
                 <group string="Paie">
 
-                    <field name="conf_slips_accounting_lines" 
+                    <field name="conf_payslip_accouting" 
                         options="{'no_create':True}" required="0"
                     />
                 </group>
