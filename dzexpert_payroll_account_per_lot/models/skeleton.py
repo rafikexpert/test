@@ -12,10 +12,8 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-
-
-class HrPayslip(models.Model):
-	_inherit = 'dzexpert.skeleton'
+class MySlipRun(models.Model):
+	_inherit = 'hr.payslip.run'
 		
 	active = fields.Boolean('Active', default=True)
 	state=fields.Selection([

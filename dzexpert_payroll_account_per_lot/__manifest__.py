@@ -14,15 +14,11 @@
     'depends': [
     'erpish_dz_hr_salary',
     'base',
-    'om_hr_payroll',
 		'account',
-    # 'hr_payroll',
 
 	],
     'data': [
 		# 'security/security.xml',
-		# 'views/skeleton.xml',
-		# 'views/menu.xml', 
     'views/sliprun.xml',
     'views/company.xml',
 		# 'security/ir.model.access.csv',   
