@@ -11,7 +11,6 @@ class SecurityGroup(models.Model):
     name = fields.Char("Nom", required=True)
     technical_name = fields.Char("Nom technique", required=True)
     module_id = fields.Many2one("dzexpert.manage.modules.module", string="module")
-    task_id = fields.Many2one("dzexpert.manage.modules.task", string="task")
     type = fields.Selection(
         [
             ("app", "App"),
@@ -111,13 +110,14 @@ class Module(models.Model):
             ("dzexpert_modules", "Modules dzexpert"),
             ("third_parties", "Modules tiers"),
         ],
-        string="type",
+        string="Type",
     )
     category_id = fields.Many2one(
-        "dzexpert.manage.modules.module.category", string="Catégorie"
+        "dzexpert.manage.modules.module.category", string="Catégorie", required=True
     )
-    odoo_version_id = fields.Many2one(
-        "dzexpert.manage.modules.odoo.version", string="Odoo version", required=True
+    odoo_version_ids = fields.Many2many(
+        "dzexpert.manage.modules.odoo.version", relation="dzexpert_manage_modules_module_odoo_vers_rel",
+        string="Odoo versions", required=True
     )
     security_group_ids = fields.One2many(
         "dzexpert.manage.modules.security.group",
