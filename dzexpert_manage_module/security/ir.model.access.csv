@@ -1,4 +1,39 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_task_1,access task,model_dzexpert_manage_modules_task,group_task_user,1,1,1,1
-access_post_1,access post,model_dzexpert_manage_modules_poste,group_task_user,1,1,1,1
-access_category_1,access category,model_dzexpert_manage_modules_category,group_task_user,1,1,1,1
+access_task_1,access task,model_dzexpert_manage_modules_task,group_erp_integrator,1,1,1,1
+access_task_2,access task2,model_dzexpert_manage_modules_task,group_teacher,1,0,0,0
+access_task_3,access task 3,model_dzexpert_manage_modules_task,group_learner,1,0,0,0
+access_post_1,access post,model_dzexpert_manage_modules_poste,group_erp_integrator,1,1,1,1
+access_category_1,access category,model_dzexpert_manage_modules_category,group_erp_integrator,1,1,1,1
+access_security_group_1,access security group 1,model_dzexpert_manage_modules_security_group,group_developer,1,1,1,1
+access_security_group_2,access security group 2,model_dzexpert_manage_modules_security_group,group_erp_integrator,1,0,0,0
+access_security_group_3,access security group 2,model_dzexpert_manage_modules_security_group,group_programmer,1,0,0,0
+access_security_group_4,access security group 2,model_dzexpert_manage_modules_security_group,group_learner,1,0,0,0
+access_menu_1,access menu,model_dzexpert_manage_modules_menu,group_developer,1,1,1,1
+access_menu_2,access menu,model_dzexpert_manage_modules_menu,group_erp_integrator,1,0,0,0
+access_menu_3,access menu,model_dzexpert_manage_modules_menu,group_learner,1,0,0,0
+access_menu_4,access menu,model_dzexpert_manage_modules_menu,group_programmer,1,0,0,0
+access_module_1,access module 1,model_dzexpert_manage_modules_module,group_developer,1,1,1,1
+access_module_2,access module 2,model_dzexpert_manage_modules_module,group_erp_integrator,1,0,0,0
+access_module_3,access module 3,model_dzexpert_manage_modules_module,group_programmer,1,0,0,0
+access_module_category_1,access module category 1,model_dzexpert_manage_modules_module_category,group_developer,1,1,1,1
+access_module_category_2,access module category 1,model_dzexpert_manage_modules_module_category,group_erp_integrator,1,0,0,0
+access_module_category_3,access module category 1,model_dzexpert_manage_modules_module_category,group_programmer,1,0,0,0
+access_email_1,access email,model_dzexpert_manage_modules_email,group_developer,1,1,1,1
+access_email_2,access email 2,model_dzexpert_manage_modules_email,group_erp_integrator,1,0,0,0
+access_email_3,access email 2,model_dzexpert_manage_modules_email,group_programmer,1,0,0,0
+access_odoo_version_1,access odoo version,model_dzexpert_manage_modules_odoo_version,group_developer,1,1,1,1
+access_odoo_version_2,access odoo version 2,model_dzexpert_manage_modules_odoo_version,group_erp_integrator,1,0,0,0
+access_odoo_version_3,access odoo version 3,model_dzexpert_manage_modules_odoo_version,group_programmer,1,0,0,0
+access_module_version_1,access module version,model_dzexpert_manage_modules_module_version,group_developer,1,1,1,1
+access_module_version_2,access module version 2,model_dzexpert_manage_modules_module_version,group_erp_integrator,1,0,0,0
+access_module_version_3,access module version 3,model_dzexpert_manage_modules_module_version,group_programmer,1,0,0,0
+access_tutorial_1,access tutorial,model_dzexpert_manage_modules_tutorial,group_teacher,1,1,1,1
+access_tutorial_2,access tutorial 2,model_dzexpert_manage_modules_tutorial,group_learner,1,0,0,0
+access_topic_1,access topic,model_dzexpert_manage_modules_topic,group_teacher,1,1,1,1
+access_topic_2,access topic 2,model_dzexpert_manage_modules_topic,group_learner,1,0,0,0
+access_link_1,access link,model_dzexpert_manage_modules_link,group_teacher,1,1,1,1
+access_link_2,access link 2,model_dzexpert_manage_modules_link,group_learner,1,0,0,0
+access_video_1,access video,model_dzexpert_manage_modules_video,group_teacher,1,1,1,1
+access_video_2,access video 2,model_dzexpert_manage_modules_video,group_learner,1,0,0,0
+access_language_1,access language,model_dzexpert_manage_modules_language,group_teacher,1,1,1,1
+access_language_2,access language 2,model_dzexpert_manage_modules_language,group_learner,1,0,0,0

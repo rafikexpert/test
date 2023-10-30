@@ -1,21 +1,78 @@
 <odoo>
-    <menuitem  id="menu_dzexpert_tasks_top"  
-        name="Task"  
-        web_icon="dzexpert_manage_modules,static/description/icon.png"
-        sequence="99" />
-	<menuitem  id="menu_dzexpert_tasks_list"  
-		name="Tasks"  
-		action="action_tasks" 
-		parent="menu_dzexpert_tasks_top"
-		sequence="100" />	
-	<menuitem  id="menu_dzexpert_categories_list"  
-		name="Categories"  
-		action="action_categories" 
-		parent="menu_dzexpert_tasks_top"
-		sequence="101" />	
-	<menuitem  id="menu_dzexpert_postes_list"  
-		name="Postes"  
-		action="action_postes" 
-		parent="menu_dzexpert_tasks_top"
-		sequence="101" />	
+	<!-- Top menu -->
+	<menuitem id="task_menu_root"
+		name="Gestion des modules"
+		web_icon="dzexpert_manage_module,static/description/icon.png"
+		sequence="99" />
+	<!-- Main menu -->
+	<menuitem id="task_menu"
+		name="Tâches"
+		action="task_action"
+		parent="task_menu_root"
+		groups="group_erp_integrator,group_developer"
+		sequence="10" />
+	<menuitem id="module_menu"
+		name="Modules"
+		action="module_action"
+		parent="task_menu_root"
+		sequence="20" />
+	<menuitem id="topic_menu"
+		name="Topics"
+		action="topic_action"
+		parent="task_menu_root"
+		sequence="30" />
+	<menuitem id="tutorial_menu"
+		name="Tutoriels"
+		action="tutorial_action"
+		parent="task_menu_root"
+		sequence="40" />
+	<menuitem id="configuration_menu"
+		name="Configuration"
+		action=""
+		parent="task_menu_root"
+		sequence="100" />
+
+	<!-- Configuration menu -->
+	<menuitem id="security_groups_menu"
+		name="Groupes de sécurité"
+		action="security_groups_action"
+		parent="configuration_menu"
+		sequence="10" />
+	<menuitem id="email_menu"
+		name="Emails"
+		action="email_action"
+		parent="configuration_menu"
+		sequence="30" />
+	<menuitem id="menu_menu"
+		name="Menus"
+		action="menu_action"
+		parent="configuration_menu"
+		sequence="40" />
+	<menuitem id="module_category_menu"
+		name="Catégories de modules"
+		action="module_category_action"
+		parent="configuration_menu"
+		sequence="45" />
+
+	<menuitem id="category_menu"
+		name="Categories des tâches"
+		action="category_action"
+		parent="configuration_menu"
+		sequence="50" />
+	<menuitem id="poste_menu"
+		name="Postes"
+		action="poste_action"
+		parent="configuration_menu"
+		sequence="60" />
+
+	<menuitem id="link_menu"
+		name="Liens externes"
+		action="link_action"
+		parent="configuration_menu"
+		sequence="70" />
+	<menuitem id="video_menu"
+		name="Videos"
+		action="video_action"
+		parent="configuration_menu"
+		sequence="80" />
 </odoo>

@@ -6,30 +6,38 @@ _logger = logging.getLogger(__name__)
 
 
 class Category(models.Model):
-    _name = "dzexpert_manage_modules.category"
+    _name = "dzexpert.manage.modules.category"
     _description = "Catégorie de tâche"
     name = fields.Char("Nom")
 
 
 class Poste(models.Model):
-    _name = "dzexpert_manage_modules.poste"
+    _name = "dzexpert.manage.modules.poste"
     _description = "Poste"
     name = fields.Char("Nom")
 
 
-
 class Task(models.Model):
-    _name = "dzexpert_manage_modules.task"
-    _description = "Poste"
+    _name = "dzexpert.manage.modules.task"
+    _inherit = ["mail.thread"]
+    _description = "Tâche"
     name = fields.Char("Nom", required=True)
     description = fields.Text("Description", required=True)
     category_id = fields.Many2one(
-        "dzexpert_manage_modules.category", string="Categorie"
+        "dzexpert.manage.modules.category", string="Catégorie"
     )
-    poste_id = fields.Many2one("dzexpert_manage_modules.poste", string="Poste")
-    parent_id = fields.Many2one("dzexpert_manage_modules.task", string="Parent")
-    dependent_tasks_ids = fields.One2many(
-        "dzexpert_manage_modules.task",
-        "parent_id",
+    poste_ids = fields.Many2many("dzexpert.manage.modules.poste", string="Postes")
+    parent_id = fields.Many2one("dzexpert.manage.modules.task", string="Parent")
+    security_group_ids = fields.One2many(
+        "dzexpert.manage.modules.security.group",
+        "task_id",
+        string="Groupes de sécurité",
+    )
+    dependent_tasks_ids = fields.Many2many(
+        "dzexpert.manage.modules.task",
+        relation="dzexpert_manage_modules_dependent_task_rel",
+        column1="task_1",
+        column2="task_2",
         string="Tâches dépendantes",
     )
+    module_ids = fields.Many2many("dzexpert.manage.modules.module", string="Modules")
