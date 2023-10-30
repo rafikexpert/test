@@ -102,6 +102,7 @@ class Module(models.Model):
         ],
         string="État",
         default="draft",
+        track_visibility='onchange'
     )
     technical_name = fields.Char("Nom technique", required=True)
     type = fields.Selection(

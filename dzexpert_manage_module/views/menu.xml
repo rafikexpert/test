@@ -2,7 +2,7 @@
 	<!-- Top menu -->
 	<menuitem id="task_menu_root"
 		name="Gestion des modules"
-		web_icon="dzexpert_manage_modules,static/description/icon.png"
+		web_icon="dzexpert_manage_module,static/description/icon.png"
 		sequence="99" />
 	<!-- Main menu -->
 	<menuitem id="task_menu"

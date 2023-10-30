@@ -6,7 +6,6 @@ _logger = logging.getLogger(__name__)
 
 class Topic(models.Model):
     _name = "dzexpert.manage.modules.topic"
-    _inherit = ["mail.thread"]
     _description = "Topic"
 
     name = fields.Char(string="Nom", required=True)
