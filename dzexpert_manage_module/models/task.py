@@ -23,14 +23,17 @@ class Task(models.Model):
     _description = "Tâche"
     name = fields.Char("Nom", required=True)
     description = fields.Text("Description", required=True)
-    category_id = fields.Many2one(
-        "dzexpert.manage.modules.category", string="Catégorie"
+    category_ids = fields.Many2many(
+        "dzexpert.manage.modules.category",
+        relation="dzexpert_manage_modules_task_category_rel",
+        string="Catégories",
+        required=True,
     )
     poste_ids = fields.Many2many("dzexpert.manage.modules.poste", string="Postes")
     parent_id = fields.Many2one("dzexpert.manage.modules.task", string="Parent")
-    security_group_ids = fields.One2many(
+    security_group_ids = fields.Many2many(
         "dzexpert.manage.modules.security.group",
-        "task_id",
+        relation="dzexpert_manage_modules_task_security_grp_rel",
         string="Groupes de sécurité",
     )
     dependent_tasks_ids = fields.Many2many(

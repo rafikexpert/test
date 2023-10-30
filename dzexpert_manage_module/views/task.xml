@@ -11,21 +11,19 @@
                             <field name="name" default_focus="1" placeholder="Nom" />
                         </h1>
                     </div>
-                    <group col="2">
-                        <group>
-                            <field name="category_id" />
-                        </group>
-                    </group>
                     <notebook>
                         <page name="description" string="Description">
                             <field name="description" widget="html" />
+                        </page>
+                        <page name="categories" string="Catégories">
+                            <field name="category_ids" />
                         </page>
                         <page name="postes" string="Postes">
                             <field name="poste_ids" />
                         </page>
                         <page name="security groups" string="Groupes de sécurité">
                             <field name="security_group_ids">
-                                <tree editable="bottom">
+                                <tree>
                                     <field name="name" />
                                     <field name="technical_name" />
                                     <field name="type" />
@@ -35,13 +33,13 @@
                         <page name="modules" string="Modules">
                             <field name="module_ids" />
                         </page>
-                        <page name="Tâches dépendantes" string="Tâches dépendantes"
-                            domain="[('id', 'not in', [active_id])]"
-                            context="{'active_id': active_id}">
-                            <field name="dependent_tasks_ids">
-                                <tree create="false">
+                        <page name="Tâches dépendantes" string="Tâches dépendantes">
+                            <field name="dependent_tasks_ids"
+                                domain="[('id', 'not in', [active_id])]"
+                                context="{'active_id': active_id}">
+                                <tree edit="true" delete="true">
                                     <field name="name" />
-                                    <field name="category_id" />
+                                    <field name="category_ids" widget="many2many_tags" />
                                     <field name="poste_ids" widget="many2many_tags" />
                                 </tree>
                             </field>
@@ -88,7 +86,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name" />
-                <field name="category_id" />
+                <field name="category_ids" widget="many2many_tags" />
                 <field name="poste_ids" widget="many2many_tags" />
                 <field name="dependent_tasks_ids" widget="many2many_tags">
                 </field>
