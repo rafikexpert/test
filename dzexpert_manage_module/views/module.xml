@@ -75,11 +75,8 @@
                     <field name="icon" widget='image' class="oe_avatar"
                         options='{"preview_image": "icon", "size": [90, 90]}' />
                     <div class="oe_title">
-                        <label for="name" string="Nom" />
                         <h1>
-                            <div class="d-flex">
-                                <field class="o_text_overflow" name="name" />
-                            </div>
+                            <field name="name" default_focus="1" placeholder="Nom" />
                         </h1>
                     </div>
                     <group col="2">

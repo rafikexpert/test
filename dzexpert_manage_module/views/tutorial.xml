@@ -58,11 +58,8 @@
                         </button>
                     </div>
                     <div class="oe_title">
-                        <label for="title" string="Titre" />
                         <h1>
-                            <div class="d-flex">
-                                <field class="o_text_overflow" name="title" />
-                            </div>
+                            <field name="title" default_focus="1" placeholder="Titre" />
                         </h1>
                     </div>
                     <group col="2">
