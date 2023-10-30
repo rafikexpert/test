@@ -19,7 +19,7 @@
 		'security/security.xml',
 		'views/skeleton.xml',
 		'views/menu.xml', 
-    'view/users.xml',
+		'data/seq.xml', 
 		'data/cron.xml', 
 		'security/ir.model.access.csv',   
     ],
