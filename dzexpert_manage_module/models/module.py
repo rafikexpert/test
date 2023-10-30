@@ -6,7 +6,6 @@ _logger = logging.getLogger(__name__)
 
 class SecurityGroup(models.Model):
     _name = "dzexpert.manage.modules.security.group"
-    _inherit = ["mail.thread"]
     _description = "Groupe de sécurité"
 
     name = fields.Char("Nom", required=True)
@@ -24,7 +23,6 @@ class SecurityGroup(models.Model):
 
 class Email(models.Model):
     _name = "dzexpert.manage.modules.email"
-    _inherit = ["mail.thread"]
     _description = "Email"
 
     name = fields.Char("Nom", help="Nom du template", required=True)
@@ -33,7 +31,6 @@ class Email(models.Model):
 
 class Menu(models.Model):
     _name = "dzexpert.manage.modules.menu"
-    _inherit = ["mail.thread"]
     _description = "Menu"
 
     name = fields.Char("Nom", required=True)
@@ -46,7 +43,6 @@ class Menu(models.Model):
 
 class ModuleCategory(models.Model):
     _name = "dzexpert.manage.modules.module.category"
-    _inherit = ["mail.thread"]
     _description = "Module category"
 
     name = fields.Char("Nom", required=True)
@@ -54,7 +50,6 @@ class ModuleCategory(models.Model):
 
 class OdooVersion(models.Model):
     _name = "dzexpert.manage.modules.odoo.version"
-    _inherit = ["mail.thread"]
     _description = "Odoo version"
 
     name = fields.Char("Numéro de version", required=True)
@@ -62,7 +57,6 @@ class OdooVersion(models.Model):
 
 class ModuleVersion(models.Model):
     _name = "dzexpert.manage.modules.module.version"
-    _inherit = ["mail.thread"]
     _description = "Module version"
 
     name = fields.Char("Numéro de version", required=True)

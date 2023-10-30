@@ -1,4 +1,194 @@
 <odoo>
+    <!-- Views: Forms -->
+    <record id="security_groups_view_form" model="ir.ui.view">
+        <field name="name">security.groups.view.form</field>
+        <field name="model">dzexpert.manage.modules.security.group</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="technical_name" />
+                        <field name="type" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="email_view_form" model="ir.ui.view">
+        <field name="name">email.view.form</field>
+        <field name="model">dzexpert.manage.modules.email</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="menu_view_form" model="ir.ui.view">
+        <field name="name">menu.view.form</field>
+        <field name="model">dzexpert.manage.modules.menu</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="sequence" />
+                        <field name="parent_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="module_category_view_form" model="ir.ui.view">
+        <field name="name">module.category.view.form</field>
+        <field name="model">dzexpert.manage.modules.module.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="module_view_form" model="ir.ui.view">
+        <field name="name">module.view.form</field>
+        <field name="model">dzexpert.manage.modules.module</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="change_state" groups="dzexpert_manage_module.group_developer"
+                        states="draft,specs,dev,testing"
+                        string="Changer l'état" type="object" class="btn-primary" />
+                    <button name="cancel_state" groups="dzexpert_manage_module.group_developer"
+                        states="specs,dev,testing,done"
+                        string="Annuler l'état" type="object" class="btn-danger" />
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="draft,specs,dev,testing,done" />
+                </header>
+                <sheet>
+                    <field name="icon" widget='image' class="oe_avatar"
+                        options='{"preview_image": "icon", "size": [90, 90]}' />
+                    <div class="oe_title">
+                        <label for="name" string="Nom" />
+                        <h1>
+                            <div class="d-flex">
+                                <field class="o_text_overflow" name="name" />
+                            </div>
+                        </h1>
+                    </div>
+                    <group col="2">
+                        <group>
+                            <field name="type" />
+                            <field name="technical_name" />
+                        </group>
+                        <group>
+                            <field name="category_id" />
+                            <field name="odoo_version_id" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="description" string="Description">
+                            <field name="overview" widget="html" />
+                        </page>
+                        <page name="security groups" string="Groupes de sécurité">
+                            <field name="security_group_ids">
+                                <tree editable="bottom">
+                                    <field name="name" />
+                                    <field name="technical_name" />
+                                    <field name="type" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="versions" string="Versions">
+                            <field name="version_ids">
+                                <tree editable="bottom">
+                                    <field name="name" />
+                                    <field name="date" />
+                                    <field name="current_version" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="emails" string="Emails">
+                            <field name="email_ids">
+                                <tree editable="bottom">
+                                    <field name="name" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="menus" string="Menus">
+                            <field name="menu_ids">
+                                <tree editable="bottom">
+                                    <field name="name" />
+                                    <field name="sequence" />
+                                    <field name="parent_id" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+        </field>
+    </record>
+    <!-- Views: Trees -->
+    <record id="menu_view_tree" model="ir.ui.view">
+        <field name="name">menu.view.tree</field>
+        <field name="model">dzexpert.manage.modules.menu</field>
+        <field name="arch" type="xml">
+            <tree duplicate="false">
+                <field name="name" />
+                <field name="sequence" />
+                <field name="parent_id" />
+            </tree>
+        </field>
+    </record>
+    <record id="module_category_view_tree" model="ir.ui.view">
+        <field name="name">module.category.view.tree</field>
+        <field name="model">dzexpert.manage.modules.module.category</field>
+        <field name="arch" type="xml">
+            <tree duplicate="false">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record id="security_group_view_tree" model="ir.ui.view">
+        <field name="name">security.group.view.tree</field>
+        <field name="model">dzexpert.manage.modules.security.group</field>
+        <field name="arch" type="xml">
+            <tree duplicate="false">
+                <field name="name" />
+                <field name="technical_name" />
+                <field name="type" />
+            </tree>
+        </field>
+    </record>
+    <record id="module_view_tree" model="ir.ui.view">
+        <field name="name">module.view.tree</field>
+        <field name="model">dzexpert.manage.modules.module</field>
+        <field name="arch" type="xml">
+            <tree duplicate="false">
+                <field name="icon" widget="image" class="oe_avatar"
+                    options='{"preview_image": "icon", "size": [30, 30]}' />
+                <field name="name" />
+                <field name="technical_name" />
+                <field name="type" widget="badge" />
+                <field name="category_id" />
+                <field name="odoo_version_id" />
+                <field name="state" widget="badge" decoration-success="state == 'done'"
+                    decoration-danger="state == 'draft'" decoration-primary="state == 'dev'"
+                    decoration-info="state == 'testing'" decoration-warning="state == 'specs'" />
+            </tree>
+        </field>
+    </record>
     <!-- Actions -->
     <record id="security_groups_action" model="ir.actions.act_window">
         <field name="name">Groupes de sécurité</field>
@@ -63,197 +253,6 @@
             <p class="o_view_nocontent_smiling_face">
                 There are no module category to show
             </p>
-        </field>
-    </record>
-    <!-- Views: Forms -->
-    <record id="security_groups_view_form" model="ir.ui.view">
-        <field name="name">security.groups.view.form</field>
-        <field name="model">dzexpert.manage.modules.security.group</field>
-        <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="name" />
-                        <field name="technical_name" />
-                        <field name="type" />
-                    </group>
-                </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers" />
-                    <field name="message_ids" widget="mail_thread" />
-                </div>
-            </form>
-        </field>
-    </record>
-    <record id="email_view_form" model="ir.ui.view">
-        <field name="name">email.view.form</field>
-        <field name="model">dzexpert.manage.modules.email</field>
-        <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="name" />
-                    </group>
-                </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers" />
-                    <field name="message_ids" widget="mail_thread" />
-                </div>
-            </form>
-        </field>
-    </record>
-    <record id="menu_view_form" model="ir.ui.view">
-        <field name="name">menu.view.form</field>
-        <field name="model">dzexpert.manage.modules.menu</field>
-        <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="name" />
-                        <field name="sequence" />
-                        <field name="parent_id" />
-                    </group>
-                </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers" />
-                    <field name="message_ids" widget="mail_thread" />
-                </div>
-            </form>
-        </field>
-    </record>
-    <record id="module_category_view_form" model="ir.ui.view">
-        <field name="name">module.category.view.form</field>
-        <field name="model">dzexpert.manage.modules.module.category</field>
-        <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="name" />
-                    </group>
-                </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers" />
-                    <field name="message_ids" widget="mail_thread" />
-                </div>
-            </form>
-        </field>
-    </record>
-    <record id="module_view_form" model="ir.ui.view">
-        <field name="name">module.view.form</field>
-        <field name="model">dzexpert.manage.modules.module</field>
-        <field name="arch" type="xml">
-            <form>
-                <header>
-                    <button name="change_state" groups="dzexpert_manage_module.group_developer" states="draft,specs,dev,testing"
-                    string="Changer l'état" type="object" class="btn-primary"/>
-                    <button name="cancel_state" groups="dzexpert_manage_module.group_developer" states="specs,dev,testing,done"
-                    string="Annuler l'état" type="object" class="btn-danger"/>
-                    <field name="state" widget="statusbar"
-                        statusbar_visible="draft,specs,dev,testing,done" />
-                </header>
-                <sheet>
-                    <field name="icon" widget='image' class="oe_avatar"
-                        options='{"preview_image": "icon", "size": [90, 90]}' />
-                    <group>
-                        <field name="name" />
-                        <field name="type" />
-                        <field name="category_id" />
-                        <field name="odoo_version_id" />
-                        <field name="technical_name" />
-                        <field name="overview" widget="html" />
-                    </group>
-                    <notebook>
-                        <page name="security groups" string="Groupes de sécurité">
-                            <field name="security_group_ids">
-                                <tree editable="bottom">
-                                    <field name="name" />
-                                    <field name="technical_name" />
-                                    <field name="type" />
-                                </tree>
-                            </field>
-                        </page>
-                        <page name="versions" string="Versions">
-                            <field name="version_ids">
-                                <tree editable="bottom">
-                                    <field name="name" />
-                                    <field name="date" />
-                                    <field name="current_version" />
-                                </tree>
-                            </field>
-                        </page>
-                        <page name="emails" string="Emails">
-                            <field name="email_ids">
-                                <tree editable="bottom">
-                                    <field name="name" />
-                                </tree>
-                            </field>
-                        </page>
-                        <page name="menus" string="Menus">
-                            <field name="menu_ids">
-                                <tree editable="bottom">
-                                    <field name="name" />
-                                    <field name="sequence" />
-                                    <field name="parent_id" />
-                                </tree>
-                            </field>
-                        </page>
-                    </notebook>
-                </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers" />
-                    <field name="message_ids" widget="mail_thread" />
-                </div>
-            </form>
-        </field>
-    </record>
-    <!-- Views: Trees -->
-    <record id="menu_view_tree" model="ir.ui.view">
-        <field name="name">menu.view.tree</field>
-        <field name="model">dzexpert.manage.modules.menu</field>
-        <field name="arch" type="xml">
-            <tree duplicate="false" >
-                <field name="name" />
-                <field name="sequence" />
-                <field name="parent_id" />
-            </tree>
-        </field>
-    </record>
-    <record id="module_category_view_tree" model="ir.ui.view">
-        <field name="name">module.category.view.tree</field>
-        <field name="model">dzexpert.manage.modules.module.category</field>
-        <field name="arch" type="xml">
-            <tree duplicate="false" >
-                <field name="name" />
-            </tree>
-        </field>
-    </record>
-    <record id="security_group_view_tree" model="ir.ui.view">
-        <field name="name">security.group.view.tree</field>
-        <field name="model">dzexpert.manage.modules.security.group</field>
-        <field name="arch" type="xml">
-            <tree duplicate="false" >
-                <field name="name" />
-                <field name="technical_name" />
-                <field name="type" />
-            </tree>
-        </field>
-    </record>
-    <record id="module_view_tree" model="ir.ui.view">
-        <field name="name">module.view.tree</field>
-        <field name="model">dzexpert.manage.modules.module</field>
-        <field name="arch" type="xml">
-            <tree duplicate="false" >
-                <field name="icon" widget="image" class="oe_avatar"
-                    options='{"preview_image": "icon", "size": [30, 30]}' />
-                <field name="name" />
-                <field name="technical_name" />
-                <field name="type" widget="badge" />
-                <field name="category_id" />
-                <field name="odoo_version_id" />
-                <field name="state" widget="badge" decoration-success="state == 'done'"
-                    decoration-danger="state == 'draft'" decoration-primary="state == 'dev'"
-                    decoration-info="state == 'testing'" decoration-warning="state == 'specs'" />
-            </tree>
         </field>
     </record>
 </odoo>

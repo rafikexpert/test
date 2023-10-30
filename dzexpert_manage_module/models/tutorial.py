@@ -41,7 +41,6 @@ class Topic(models.Model):
 
 class Link(models.Model):
     _name = "dzexpert.manage.modules.link"
-    _inherit = ["mail.thread"]
     _description = "Link"
 
     url = fields.Char(string="Url", required=True)
@@ -50,7 +49,6 @@ class Link(models.Model):
 
 class Video(models.Model):
     _name = "dzexpert.manage.modules.video"
-    _inherit = ["mail.thread"]
     _description = "Video"
 
     name = fields.Char(string="Nom", required=True)
@@ -60,7 +58,6 @@ class Video(models.Model):
 
 class Language(models.Model):
     _name = "dzexpert.manage.modules.language"
-    _inherit = ["mail.thread"]
     _description = "Language"
 
     name = fields.Char(string="Nom", required=True)
@@ -71,7 +68,7 @@ class Tutorial(models.Model):
     _inherit = ["mail.thread"]
     _description = "Tutorial"
 
-    title = fields.Char("Title", required=True)
+    title = fields.Char("Titre", required=True)
     tasks_ids = fields.Many2many(
         "dzexpert.manage.modules.task",
         relation="dzexpert_manage_modules_tutorial_task_rel",

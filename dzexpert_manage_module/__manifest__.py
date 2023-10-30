@@ -13,7 +13,7 @@
     "version": "11.0.1.3",
     "depends": [
         "base",
-        "account",
+        "mail"
     ],
     "data": [
         "security/security.xml",

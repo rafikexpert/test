@@ -7,14 +7,12 @@ _logger = logging.getLogger(__name__)
 
 class Category(models.Model):
     _name = "dzexpert.manage.modules.category"
-    _inherit = ["mail.thread"]
     _description = "Catégorie de tâche"
     name = fields.Char("Nom")
 
 
 class Poste(models.Model):
     _name = "dzexpert.manage.modules.poste"
-    _inherit = ["mail.thread"]
     _description = "Poste"
     name = fields.Char("Nom")
 
