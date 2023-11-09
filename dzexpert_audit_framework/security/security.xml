@@ -1,0 +1,23 @@
+<odoo>
+	    <record model="ir.module.category" id="module_dzexpert_audit_framework">
+            <field name="name">DZExpert Audit framework</field>
+            <field name="description">DZExpert Audit framework</field>
+            <field name="sequence">1</field>
+        </record>
+
+		<record id="group_audit_user" model="res.groups">
+			<field name="name">User</field>
+			<field name="category_id" ref="dzexpert_audit_framework.module_dzexpert_audit_framework"/>			
+			<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>	
+			<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+
+
+		<record id="group_audit_manager" model="res.groups">
+			<field name="name">Manager</field>
+			<field name="category_id" ref="dzexpert_audit_framework.module_dzexpert_audit_framework"/>			
+			<field name="implied_ids" eval="[(4, ref('dzexpert_audit_framework.group_audit_user'))]"/>	
+			<field name="users" eval="[(4, ref('base.user_root'))]"/>
+		</record>
+
+</odoo>

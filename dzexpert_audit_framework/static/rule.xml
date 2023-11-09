@@ -1,0 +1,48 @@
+<odoo>
+
+	  <record  id="dzexpert_audit_rule_form"  model="ir.ui.view">
+		<field  name="name">Rule Form</field>
+		<field  name="model">dzexpert.audit.rule</field>
+		<field  name="arch"  type="xml">
+			<form duplicate="false" delete="true">
+
+				<sheet>
+                    <group>
+                        <group id="header_left_group">
+                                <field name="name" default_focus="1" placeholder="Nom" />
+                                <field name="category_id" default_focus="1" placeholder="La categorie de la verification" />
+                        </group>
+
+                        <group id="header_right_group">
+                                <field name="sequence" default_focus="1" placeholder="Sequence:" />
+                                <field name="type" default_focus="1" placeholder="Select type" />
+                        </group>
+                    </group>
+                </sheet>
+			</form>
+		</field>
+	  </record>
+
+        <record id="dzexpert_audit_rule_tree" model="ir.ui.view">
+            <field name="name">dzexpert.audit.rule Tree</field>
+            <field  name="model">dzexpert.audit.rule</field>  
+            <field name="arch" type="xml">
+                <tree duplicate="false" delete="false">
+					<field name="name"/>
+                    <field name="category_id"/>
+					<field name="sequence"/>
+					<field name="type"/>
+                </tree>
+            </field>
+        </record>
+	  
+        <record id="action_dzexpert_audit_rule" model="ir.actions.act_window">
+            <field name="name">Rule</field>
+            <field name="res_model">dzexpert.audit.rule</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>                   
+        </record>
+
+</odoo>

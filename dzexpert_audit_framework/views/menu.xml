@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding = "utf-8"?>
+<odoo>
+
+    <menuitem  id="menu_dzexpert_audit_framework"  
+        name="Audit Framework App"  
+        web_icon="dzexpert_audit_framework,static/description/icon.png" 
+        sequence="99" />
+
+                <menuitem  id="menu_erpish_c_docs"  
+					name="Sessions"  
+					action="action_dzexpert_audit_session" 
+					parent="menu_dzexpert_audit_framework"
+					groups="dzexpert_audit_framework.group_audit_user"
+					sequence="100" />	
+
+                <menuitem  id="menu_erpish_c_docs1"  
+					name="Verifications"  
+					action="action_dzexpert_audit_verification" 
+					parent="menu_dzexpert_audit_framework"
+					groups="dzexpert_audit_framework.group_audit_user"
+					sequence="100" />
+
+                <menuitem  id="menu_erpish_c_docs2"  
+					name="Rules"  
+					action="action_dzexpert_audit_rule" 
+					parent="menu_dzexpert_audit_framework"
+					groups="dzexpert_audit_framework.group_audit_manager"
+					sequence="100" />	
+
+                <menuitem  id="menu_erpish_c_docs3"  
+					name="Categories"  
+					action="action_dzexpert_audit_category" 
+					parent="menu_dzexpert_audit_framework"
+					groups="dzexpert_audit_framework.group_audit_manager"
+					sequence="100" />	
+				
+</odoo>
