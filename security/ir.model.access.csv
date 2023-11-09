@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_skeletest_model_1,access_skeletest_model,model_todo_category,base.group_user,1,1,1,1
+
+
+access_skeletest_model_2,access_skeletest_model,model_task_nom,base.group_user,1,1,1,1

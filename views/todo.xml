@@ -1,0 +1,151 @@
+<odoo>
+
+ 
+
+	  <record  id="view_dzexpert_task_nom_form"  model="ir.ui.view">  
+		<field  name="name">To do Task</field>  
+		<field  name="model">task.nom</field>  
+		<field  name="arch"  type="xml">  
+			<form duplicate="false" delete="false">  
+				<header>
+					 <button name="action_hello" 
+						type="object"  string="Run" 
+						id="toprint" class="oe_highlight"/> 
+                </header>
+				<sheet>					 
+                    <div class="aa_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Nom de la tache" />
+                        </h1>
+                    </div>				 			                     
+                    <notebook>
+						<page id="pg_description" string="Description"> 
+							<field name="description" placeholder="Description de la tache" />
+						</page>						
+                    </notebook>                   
+                    <notebook>
+						<page id="pg_category" string="Category"> 
+							<field name="category" placeholder="Category de la tache" />
+						</page>						
+                    </notebook>                   
+				</sheet>	 	
+			</form>  
+		</field>  
+	  </record>
+	  
+        <record id="view_dzexpert_task_nom_tree" model="ir.ui.view">
+            <field name="name">erpish.cahsier.exepnses.tree</field>
+            <field  name="model">task.nom</field>  
+            <field name="arch" type="xml">
+                <tree duplicate="false" delete="true">
+					<field name="name"/>
+					<field name="description"  />
+					<field name="category"  />
+                </tree>
+            </field>
+        </record>
+
+
+       <record id="action_dzexpert_task_nom" model="ir.actions.act_window">
+            <field name="name">dzexpert_task_nom</field>
+            <field name="res_model">task.nom</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>                   
+        </record>	
+
+        <record id="view_dzexpert_task_nom_filter" model="ir.ui.view">
+            <field name="name">erpish.unite</field>
+            <field name="model">task.nom</field>
+            <field name="arch" type="xml">
+                <search string="Search Requests">                
+					<separator/>		
+					<field name="name"/>					
+               </search>
+            </field>
+        </record>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	  <record  id="view_dzexpert_todo_cat_form"  model="ir.ui.view">  
+		<field  name="name">To do Cat</field>  
+		<field  name="model">todo.category</field>  
+		<field  name="arch"  type="xml">  
+			<form duplicate="false" delete="false">  
+				<header>
+					 <button name="action_hello" 
+						type="object"  string="Run Check" 
+						id="toprint" class="oe_highlight"/> 
+                </header>
+				<sheet>					 
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Nom de la categorie" />
+                        </h1>
+                    </div>
+				</sheet>	 	
+				<sheet>					 
+                    <div class="of_title">
+                        <h1>
+                            <field name="description" default_focus="1" placeholder="Description de la categorie" />
+                        </h1>
+                    </div>
+				</sheet>	 	
+			</form>  
+		</field>  
+	  </record>	  
+      	  
+        <record id="view_dzexpert_todo_cat_tree" model="ir.ui.view">
+            <field name="name">erpish.cahsier.exepnses.tree</field>
+            <field  name="model">todo.category</field>  
+            <field name="arch" type="xml">
+                <tree duplicate="false" delete="true">
+					<field name="name"/>
+					<field name="description"  />
+                </tree>
+            </field>
+        </record>
+	  
+        <record id="view_dzexpert_todo_cat_filter" model="ir.ui.view">
+            <field name="name">erpish.unite</field>
+            <field name="model">todo.category</field>
+            <field name="arch" type="xml">
+                <search string="Search Requests">                
+					<separator/>							
+					<field name="name"/>					
+               </search>
+            </field>
+        </record>
+        
+        <record id="action_dzexpert_todo_cat" model="ir.actions.act_window">
+            <field name="name">dzexpert_todo_cat</field>
+            <field name="res_model">todo.category</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>                   
+        </record>	
+
+</odoo>

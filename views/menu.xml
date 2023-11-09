@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding = "utf-8"?>
+<odoo>
+
+    <menuitem  id="menu_dzexpert_todo_top"
+        name="Todo App"
+        web_icon="skeletest,static/description/icon.png"
+        sequence="99" />
+
+				<menuitem  id="menu_erpish_c_docs"
+					name="To do categorie"
+					action="action_dzexpert_todo_cat"
+					parent="menu_dzexpert_todo_top"
+					groups="base.group_user"
+					sequence="100" />
+
+				<menuitem  id="menu_erpish_c_docs2"  
+					name="Task list "  
+					action="action_dzexpert_task_nom" 
+					parent="menu_dzexpert_todo_top"
+					groups="base.group_user"
+					sequence="100" />	
+
+</odoo>
