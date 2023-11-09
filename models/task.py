@@ -9,6 +9,10 @@ class task(models.Model):
     name = fields.Char("Task nom:", required=True,index=True)  
     description = fields.Char("Task description", required=True,index=True, delegate=True)  
     category = fields.Many2one('todo.category', string='category', required=True , ondelete='cascade' )
+    state = fields.Selection([
+        ('done','Done'),
+        ('in progress','Inprogress')
+    ], default="done")
  #   category_id = fields.Many2one('todo.category', ondelete='set null', required=True, string='category')
 
     def action_hello():

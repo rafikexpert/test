@@ -28,6 +28,11 @@
 							<field name="category" placeholder="Category de la tache" />
 						</page>						
                     </notebook>                   
+                    <notebook>
+						<page id="pg_state" string="State"> 
+							<field name="state" placeholder="State de la tache" />
+						</page>						
+                    </notebook>                   
 				</sheet>	 	
 			</form>  
 		</field>  
@@ -41,6 +46,7 @@
 					<field name="name"/>
 					<field name="description"  />
 					<field name="category"  />
+					<field name="state"  />
                 </tree>
             </field>
         </record>
