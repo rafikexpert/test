@@ -18,6 +18,6 @@ class Category(models.Model):
   _description = 'audit category Description' # model description
   _inherit=['mail.thread']
 
-  name = fields.Char(string='Nom:', required=True)  
-  sequence = fields.Integer(string='Sequence:', required=True)
-  rule_ids = fields.One2many( comodel_name='dzexpert.audit.rule', inverse_name ="category_id", string="Rule:", required=True)
+  name = fields.Char(string='Nom', required=True)  
+  sequence = fields.Integer(string='Sequence', index=True, required=True, default=1, help='Used to display digest tip in email template base on order')
+  rule_ids = fields.One2many( comodel_name='dzexpert.audit.rule', inverse_name ="category_id", string="Rule", required=True)

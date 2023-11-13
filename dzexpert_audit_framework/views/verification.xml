@@ -1,23 +1,28 @@
 <odoo>
 
         <record  id="dzexpert_audit_verification_form"  model="ir.ui.view">  
-            <field  name="name">Verification Form</field>  
+            <field  name="name">Verification Form</field>
             <field  name="model">dzexpert.audit.verification</field>
             <field  name="arch"  type="xml">
                 <form duplicate="false" delete="true">
                     <sheet>
                         <group>
                             <group id="header_right_group">
-                                    <field name="name" default_focus="1" placeholder="Nom de la verification" /> 
-                                    <field name="rule_id" default_focus="1" placeholder="La Loi de la verification" /> 
+                                    <field name="name" default_focus="1" placeholder="Nom de la verification" />
+                                    <field name="rule_id" default_focus="1" placeholder="La Loi de la verification" />
                             </group>
                             <group id="header_left_group">
                                     <field name="session_id" default_focus="1" placeholder="La session de la verification" />
                                     <field name="description" default_focus="1" placeholder="Description" />
                             </group>
                         </group>
-                    </sheet>	
-                </form>  
+<!--
+                        <group id="header_bottom_group">
+                                    <field name="category_id" default_focus="1" placeholder="La categorie de la verification" />
+                        </group>
+-->
+                    </sheet>
+                </form>
             </field>  
         </record>
 
@@ -26,6 +31,7 @@
             <field  name="model">dzexpert.audit.verification</field>  
             <field name="arch" type="xml">
                 <tree duplicate="false" delete="false">
+					<field name="id" widget="handle" />
                     <field name="name"/>
                     <field name="description"/>
                     <field name="session_id"/>

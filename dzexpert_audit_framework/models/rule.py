@@ -19,11 +19,12 @@ class Rule(models.Model):
 	_description = "Rule"	
 	_order = 'name asc'
 
-	name=fields.Char(string='Nom:', required=True)  
+	name=fields.Char(string='Nom', required=True)  
 	rule_type=fields.Selection([
 		('manual','Manual'),
 		('code','Code'),
-		('auto','Auto')],string='Type de loi:',default='manual')
+		('auto','Auto')],string='Type de loi',default='manual')
  
-	sequence = fields.Integer(string="Sequence:", required=True)
-	category_id = fields.Many2one('dzexpert.audit.category', 'Categorie:', required=True)
+	sequence = fields.Integer(string="Sequence", required=True)
+	category_id = fields.Many2one('dzexpert.audit.category', 'Categorie', required=True)
+	code_dautomatisation=fields.Char(string="Code d'automatisation", required=True)

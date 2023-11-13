@@ -5,22 +5,28 @@
             <field  name="arch"  type="xml">
                 <form duplicate="false" delete="true">
                     <sheet>
-                        <div class="oe_title">
                             <group>
                                 <group id="header_left_group">
                                         <field name="name" default_focus="1" placeholder="Enter Name" />
                                 </group>
-                                <group id="header_right_group">        
-                                        <field name="sequence" default_focus="1" placeholder="Enter Sequence" />
+                                <group id="header_right_group">
+                                        <field name="sequence" />
                                 </group>
-                            </group> 
+                            </group>
 
                             <notebook>
-                                <page id="rule_ids" placeholder="Enter rule_ids" string="Rules:">
-                                    <field name="rule_ids" default_focus="1" placeholder="rule_ids" />
+                                <page id="rule_ids" string="Rules" role="tab">
+                                    <field name="rule_ids" position="move" widget="many2many_tags_link">
+                                        <tree duplicate="false" delete="false" editable="bottom"  >
+                                            <field name="name" position="move"/>
+                                            <field name="rule_type" position="move"/>
+                                            <field name="sequence" position="move" type="number" style="max-width: 100%;" />
+                                            <field name="category_id" position="move"/>
+                                            <field name="code_dautomatisation" position="move"/>
+                                        </tree>
+                                    </field>
                                 </page>
                             </notebook>
-                        </div>
                     </sheet>
                 </form>
             </field>
@@ -31,6 +37,7 @@
             <field  name="model">dzexpert.audit.category</field>  
             <field name="arch" type="xml">
                 <tree duplicate="false" delete="false">
+                    <field name="id" widget="handle" />
 					<field name="name"/>
 					<field name="sequence"/>
 					<field name="rule_ids"/>
@@ -39,7 +46,7 @@
         </record>
 
         <record id="action_dzexpert_audit_category" model="ir.actions.act_window">
-            <field name="name">Category</field>
+            <field name="name">Categorie</field>
             <field name="res_model">dzexpert.audit.category</field>
             <field name="type">ir.actions.act_window</field>
             <field name="view_mode">tree,form</field>

@@ -19,8 +19,8 @@ class Verification(models.Model):
 	_description = "Verification"	
 	_order = 'description asc'
     
-	name=fields.Char(string='Nom:', required=True, copy=False)  
-	session_id	 = fields.Many2one('dzexpert.audit.session', 'Session:', required=True)
-	rule_id	 = fields.Many2one('dzexpert.audit.rule', 'Loi:', required=True)
-	description=fields.Text(string='Description:')        
-	category_id = fields.Many2one(string="Categorie:", related='session_id.category_id', store=True, required=True)
+	name=fields.Char(string='Nom', required=True, copy=False)  
+	session_id	 = fields.Many2one('dzexpert.audit.session', 'Session', required=True)
+	rule_id	 = fields.Many2one('dzexpert.audit.rule', 'Loi', required=True)
+	description=fields.Text(string='Description')        
+	category_id = fields.Many2one(string="Categorie", related='session_id.category_id', store=True, required=True)
